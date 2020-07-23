@@ -1,3 +1,7 @@
 .navbar {
-    background-color: #000000;
+    background-color:black;
+    margin-bottom: 75px;
+}
+#loginbtn{
+    margin-bottom: 50px;
 }
