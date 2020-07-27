@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
 mongoose.connect(
-  "mongodb+srv://kewl1test:kewl1test@kewl1test.ttn3a.mongodb.net/user?retryWrites=true&w=majority",
+  `mongodb+srv://kewl1test:${process.env.DBPASS}@kewl1test.ttn3a.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -12,6 +13,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     lowercase: true,
   },
+  name:{
+    type:String,
+    lowercase:true,
+  },
   firstname:{
     type:String,
     lowercase:true,
@@ -19,9 +24,6 @@ const userSchema = new mongoose.Schema({
   lastname:{
     type:String,
     lowercase:true,
-  },
-  googleid:{
-    type:String,
   },
   imageurl:{
     type:String

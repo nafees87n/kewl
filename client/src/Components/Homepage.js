@@ -1,28 +1,39 @@
 import React, { Component } from "react";
 import { HomeNav } from "./HomeNav";
 import { GoogleLogin } from "react-google-login";
-const data = { ex: "HI" };
+import { Redirect } from "react-router-dom";
+import keys from '../keys/keys'
+let headers = new Headers();
+headers.append("Content-Type", "application/json");
+headers.append("Accept", "application/json");
+headers.append("Access-Control-Allow-Credentials", "true");
+headers.append("GET", "POST", "OPTIONS");
 class Homepage extends Component {
+  constructor(props){
+    super(props);
+    this.state  ={
+      clicked:false
+    }
+    this.test=this.test.bind(this)
+  }
   responseGoogle(response) {
-    // console.log(response);
-    // console.log(response.profileObj);
-    fetch("http://localhost:5000/goo", {
+    fetch("http://localhost:5000/login", {
       method: "POST",
-      headers:{'Content-type':'application/json'},
-      body: JSON.stringify(response),
+      // headers: { "Content-type": "application/json" },
+      headers:headers,
+      body: JSON.stringify({token:`${response.tokenId}`}),
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log("Success:", data);
+        console.log("wapas ", data);
       })
       .catch((error) => {
         console.error("Error:", error);
       });
   }
   test() {
-    fetch("http://localhost:5000/foo")
-    .then((res)=>res.json())
-    .then(console.log)
+    console.log("clicked");
+    this.setState({clicked:true})
   }
   render() {
     return (
@@ -40,12 +51,16 @@ class Homepage extends Component {
               id="loginbtn"
             >
               <GoogleLogin
-                clientId="663571945289-n5o7daalove9ka7rrdu1k6fd9k5heu1d.apps.googleusercontent.com"
+                clientId={keys.CLIENTID}
                 onSuccess={this.responseGoogle}
                 onFailure={this.responseGoogle}
                 cookiePolicy={"single_host_origin"}
               />
-              <button onClick={this.test}>Try</button>
+              <button onClick={this.test}>
+                {this.state.clicked ? <Redirect clicked to="/dashboard"/>:
+                  <p>Try</p>
+                }  
+              </button>
             </div>
           </div>
         </div>
