@@ -1,0 +1,35 @@
+/* *{
+    margin: auto;
+} */
+#inner_container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#heading {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+#outer div{
+    margin: 10px;
+    /* border: 2px solid black; */
+}
+
+#right_inner{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    min-width: 150px;
+    border: 2px solid black;
+    
+}
+#right_inner{
+    width: 35vw;
+    min-height: 75vh;
+}
+#left_inner > *{
+    min-width:  55vw;
+}

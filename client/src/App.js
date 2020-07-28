@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Homepage from "./Components/Homepage";
 import Dashboard from "./Components/dashboard";
+import Three from "./Components/three";
 class App extends Component {
   render() {
     return (
@@ -13,12 +14,8 @@ class App extends Component {
           exact={true}
           path="/two"
           component={two}
-          />
-          <Route
-          exact={true}
-          path="/three"
-          component={three}
-          /> */}
+        />*/}
+        <Route exact={true} path="/three" component={Three} />
       </Router>
     );
   }
