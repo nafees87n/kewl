@@ -16,7 +16,7 @@ app.use(cors());
 // });
 // newUser.save();
 // app.use('/login',login);
-const u = `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:5000&prompt=consent&client_id=663571945289-n5o7daalove9ka7rrdu1k6fd9k5heu1d.apps.googleusercontent.com`;
+const u = `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:5000&prompt=consent&client_id=${process.env.CLIENTID}`;
 
 app.get("/login", (req, res) => {
   res.redirect(u);
