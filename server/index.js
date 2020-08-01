@@ -6,6 +6,7 @@ const axios = require("axios").default;
 // const login = require("./routes/login");
 const dotenv = require("dotenv");
 dotenv.config();
+// implementing socket.io next
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
