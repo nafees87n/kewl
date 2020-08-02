@@ -1,7 +1,14 @@
 .navbar {
-    background-color:black;
-    margin-bottom: 75px;
+  background-color: black;
+  margin-bottom: 75px;
 }
-#loginbtn{
-    margin-bottom: 50px;
+#loginbtn {
+  margin-bottom: 50px;
+}
+.googlebtn {
+  text-decoration: none;
+}
+.googlebtn:hover{
+  text-decoration: none;
+  cursor: pointer;
 }

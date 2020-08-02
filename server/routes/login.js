@@ -1,35 +1,46 @@
 const express = require("express");
 const router = express.Router();
-const jwt = require("jwt-simple");
+require("dotenv").config();
+const axios = require("axios").default;
 const User = require("../db/db");
-router.post("/", async (req, res) => {
-  let token = req.body.token;
-  let googleUser;
-  try {
-    googleUser = jwt.decode(token, "", true);
-  } catch {
-    console.log("error");
-    res.send({ error: "error" });
-    return;
-  }
-  let existingUser = await User.findOne({ email: googleUser.email });
+
+router.get("/redirect", async (req, res) => {
+  const accessToken = await axios
+    .post("https://oauth2.googleapis.com/token", {
+      code: req.query.code,
+      client_id: process.env.CLIENTID,
+      client_secret: process.env.CLIENT_SECRET,
+      redirect_uri: "http://localhost:5000/login/redirect",
+      grant_type: "authorization_code",
+    })
+    .then((res) => res.data.access_token)
+    .catch(err=>console.log(err));
+  // console.log(token);
+  // console.log("HII");
+  const info = await axios
+    .get("https://www.googleapis.com/oauth2/v2/userinfo", {
+      headers: {
+        authorization: `Bearer ${accessToken}`,
+      },
+    })
+    .then((res) => res.data)
+    .catch(console.log("Error2"));
+  // console.log("NICe",info);
+  const existingUser = await User.findOne({ id: info.id });
   if (existingUser) {
-    console.log("Found");
+    console.log("FOUND");
   } else {
     const newUser = new User({
-      name: googleUser.name,
-      firstname: googleUser.given_name,
-      lastname: googleUser.family_name,
-      email: googleUser.email,
-      imageurl: googleUser.picture,
+      id: info.id,
+      name: info.name,
+      firstname: info.given_name,
+      lastname: info.family_name,
+      email: info.email,
+      imageurl: info.picture,
     });
     await newUser.save();
-    console.log("SUCCESS");
+    console.log("NEW USER ADDED");
   }
-  res.cookie("access_token", token, {
-    httpOnly: false,
-  });
-  res.status(200).json({ success: true });
 });
 
 module.exports = router;

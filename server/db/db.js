@@ -9,21 +9,21 @@ mongoose.connect(
 );
 
 const userSchema = new mongoose.Schema({
+  id:{
+    type:Number,
+  },
   email: {
     type: String,
     lowercase: true,
   },
   name:{
     type:String,
-    lowercase:true,
   },
   firstname:{
     type:String,
-    lowercase:true,
   },
   lastname:{
     type:String,
-    lowercase:true,
   },
   imageurl:{
     type:String
