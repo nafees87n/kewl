@@ -4,17 +4,20 @@ require("dotenv").config();
 const axios = require("axios").default;
 const User = require("../db/db");
 
+
 router.get("/redirect", async (req, res) => {
+  console.log("REQ CODE", req.query.code);
   const accessToken = await axios
     .post("https://oauth2.googleapis.com/token", {
       code: req.query.code,
       client_id: process.env.CLIENTID,
       client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: "http://localhost:5000/login/redirect",
+      redirect_uri: "http://localhost:3000/login/redirect",
       grant_type: "authorization_code",
     })
     .then((res) => res.data.access_token)
-    .catch(err=>console.log(err));
+    console.log("ACCES",accessToken)
+  // .catch(err=>console.log("err"));
   // console.log(token);
   // console.log("HII");
   const info = await axios
@@ -23,9 +26,9 @@ router.get("/redirect", async (req, res) => {
         authorization: `Bearer ${accessToken}`,
       },
     })
-    .then((res) => res.data)
-    .catch(console.log("Error2"));
-  // console.log("NICe",info);
+    .then((res) => res.data);
+  // .catch(console.log("Error2"));
+  console.log("NICe", info);
   const existingUser = await User.findOne({ id: info.id });
   if (existingUser) {
     console.log("FOUND");
@@ -41,6 +44,8 @@ router.get("/redirect", async (req, res) => {
     await newUser.save();
     console.log("NEW USER ADDED");
   }
+  // res.send("HII");
+  res.send({email:info.email});
 });
 
 module.exports = router;

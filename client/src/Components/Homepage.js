@@ -1,16 +1,27 @@
 import React, { Component } from "react";
 import { HomeNav } from "./HomeNav";
 import { GoogleLogin } from "react-google-login";
-import { Redirect } from "react-router-dom";
 import keys from "../keys/keys";
-const url = `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:5000/login/redirect&prompt=consent&client_id=${keys.CLIENTID}`;
+import Cookies from "js-cookie";
+
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false,
+      url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&client_id=${keys.CLIENTID}`,
     };
-    this.test = this.test.bind(this);
+    this.signin = this.signin.bind(this);
+  }
+  componentDidMount() {
+    if (Cookies.get("chatemail")) {
+      let email = Cookies.get("chatemail");
+      this.setState({
+        url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&login_hint=${email}&client_id=${keys.CLIENTID}`,
+      });
+    }
+  }
+  signin() {
+    window.location.href = this.state.url;
   }
   render() {
     return (
@@ -27,8 +38,9 @@ class Homepage extends Component {
               className="col-md-4 offset-md-2 col-sm-6 offset-sm-4 col-6 offset-4 order-md-2 order-1 align-self-center"
               id="loginbtn"
             >
-              <a className="googlebtn" href={url}>
+              <a className="googlebtn" onClick={this.signin}>
                 <GoogleLogin className="googlebtn" />
+                {/* <Redirect to='/dashboard'/> */}
               </a>
               {/* <a href={url} >
                 {this.state.clicked ? (
