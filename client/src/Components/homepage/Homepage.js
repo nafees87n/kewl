@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { HomeNav } from "./HomeNav";
 import { GoogleLogin } from "react-google-login";
-import keys from "../keys/keys";
+import keys from "../../keys/keys";
 import Cookies from "js-cookie";
 
 class Homepage extends Component {

@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Homepage from "./Components/Homepage";
+import Homepage from "./Components/homepage/Homepage";
 import Dashboard from "./Components/dashboard";
-import Three from "./Components/three";
+import Three from "./Components/page-3/three";
 import ProtectedRoute from "./Components/ProtectedRoute";
-import { Loading } from "./Components/Loading";
+import { Loading } from "./Components/homepage/Loading";
 class App extends Component {
   render() {
     return (
