@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import "./App.css";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Homepage from "./Components/Homepage";
+import Homepage from "./Components/homepage/Homepage";
 import Dashboard from "./Components/dashboard";
+<<<<<<< HEAD
 import Three from "./Components/three";
 import Two from "./Components/two";
+=======
+import Three from "./Components/page-3/three";
+>>>>>>> bb4888f79a2a5d3d500f4ecb89c9038aeecea550
 import ProtectedRoute from "./Components/ProtectedRoute";
-import { Loading } from "./Components/Loading";
+import { Loading } from "./Components/homepage/Loading";
 class App extends Component {
   render() {
     return (
