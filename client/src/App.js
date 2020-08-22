@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Homepage from "./Components/Homepage";
 import Dashboard from "./Components/dashboard";
 import Three from "./Components/three";
+import Two from "./Components/two";
 import ProtectedRoute from "./Components/ProtectedRoute";
 import { Loading } from "./Components/Loading";
 class App extends Component {
@@ -17,11 +18,11 @@ class App extends Component {
             path="/dashboard"
             component={Dashboard}
           />
-          {/* <Route
+          <Route
           exact={true}
           path="/two"
-          component={two}
-        />*/}
+          component={Two}
+        />
           <Route exact={true} path="/login/redirect" component={Loading} />
           <Route exact={true} path="/three" component={Three} />
         </Switch>

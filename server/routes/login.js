@@ -6,17 +6,17 @@ const User = require("../db/db");
 
 
 router.get("/redirect", async (req, res) => {
-  console.log("REQ CODE", req.query.code);
+  console.log("REQ CODE", req.query.code); //what is this code
   const accessToken = await axios
-    .post("https://oauth2.googleapis.com/token", {
+    .post("https://oauth2.googleapis.com/token", { //kya post kar rahe hai
       code: req.query.code,
       client_id: process.env.CLIENTID,
       client_secret: process.env.CLIENT_SECRET,
       redirect_uri: "http://localhost:3000/login/redirect",
       grant_type: "authorization_code",
     })
-    .then((res) => res.data.access_token)
-    console.log("ACCES",accessToken)
+    .then((res) => res.data.access_token) //which token
+    console.log("ACCESS",accessToken)
   // .catch(err=>console.log("err"));
   // console.log(token);
   // console.log("HII");
@@ -49,3 +49,4 @@ router.get("/redirect", async (req, res) => {
 });
 
 module.exports = router;
+

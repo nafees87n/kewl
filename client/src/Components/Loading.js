@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Axios from "axios";
 import Cookies from "js-cookie";
-import { useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom"; // what is usehistory
 export function Loading() {
   let history = useHistory();
   useEffect(() => {
@@ -16,7 +16,8 @@ export function Loading() {
       })
         .then((res) => Cookies.set("chatemail", res.data.email))
         .then(console.log("SUCCESS"));
-      history.push("/dashboard");
+      history.push("/two");
+      // history.push("/dashboard");
     }
     request();
   });
