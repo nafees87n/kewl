@@ -14,7 +14,7 @@ class Three extends Component{
                 <h1 style={{ textAlign : "center"}}>Project Name</h1>
                 
                 <div id="heading" style={{ textAlign : "center", fontSize: "1.5rem" , border: "2px solid black"}}>
-                {this.props.roomname} and Username
+                <strong>{this.props.roomname}</strong>
                     <Menu />
                 </div>
                 
