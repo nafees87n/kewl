@@ -8,12 +8,13 @@ import "./three.css";
 
 class Three extends Component{
     render(){
+        // this.props.roomname
         return(
             <div id="outer" >
                 <h1 style={{ textAlign : "center"}}>Project Name</h1>
                 
                 <div id="heading" style={{ textAlign : "center", fontSize: "1.5rem" , border: "2px solid black"}}>
-                    RoomName and Username
+                {this.props.roomname} and Username
                     <Menu />
                 </div>
                 

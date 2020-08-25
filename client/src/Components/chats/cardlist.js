@@ -3,12 +3,7 @@ import db from "../../firebase.js";
 import Card from "./card" ;
 
 const Cardlist = () => {
-    // const cardComponent = robots.map((user,i) =>  {
-    //     return  < Card key={i} 
-    //     id={robots[i].id} 
-    //     name={robots[i].name} 
-    //     email={robots[i].email} />
-    // })
+
 
     const [channels,setChannels] = useState([]);
     // const [roomMessages,setRoomMessages] = useState([]);
@@ -43,7 +38,4 @@ const Cardlist = () => {
     );  
 }
 export default Cardlist ; 
-
-
-
-// mapping across all different rooms 
+ 

@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
 });
 
-function Messages() {
+const Messages = ({message,timestamp}) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
 
@@ -36,23 +36,9 @@ function Messages() {
       {/* bg={"dark"} */}
       <CardContent>
         <Typography variant="body2" component="p">
-          this is the first message
+          {message}
         </Typography>
       </CardContent>
-    </Card>
-    <Card className={classes.root}>
-      <CardContent>
-        <Typography variant="body2" component="p">
-          this is the second message
-        </Typography>
-      </CardContent>
-    </Card>
-    <Card className={classes.root}>
-    <CardContent>
-      <Typography variant="body2" component="p">
-        this is the third message
-      </Typography>
-    </CardContent>
   </Card>
   </ScrollToBottom>
     </div>

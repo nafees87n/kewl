@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useParams} from "react-router-dom";
+import Three from "../page-3/three";
+
 
 function Chatroom() {
+    const {roomId} = useParams() ;
     return (
         <div>
-            <h1>this is a chat room</h1>
+        <Three roomname={roomId}/>
         </div>
     )
 }
