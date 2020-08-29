@@ -1,4 +1,4 @@
-import React,{ useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import db from "../firebase.js";
 import DiscussionRooms from "./chats/discussionrooms.js";
 import Chatroom from "./chats/chatroom1";
@@ -9,10 +9,10 @@ import userInfo from "./userinfo/userinfo";
 // import { Switch } from '@material-ui/core';
 // decoupled code => code which acts as a listener (ex- directly connected to db)
 // import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import { useParams, Redirect,useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles"
- 
-import {  BrowserRouter as Router,  Switch, Route, Link} from "react-router-dom";
+import { useParams, Redirect, useHistory } from "react-router-dom";
+import { makeStyles } from "@material-ui/core/styles";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import {
   Drawer,
   List,
@@ -25,25 +25,30 @@ import {
 
 import HomeIcon from "@material-ui/icons/Home";
 import Forum from "@material-ui/icons/Forum";
-import AddToQueue from '@material-ui/icons/AddToQueue';
-import ExitToApp from '@material-ui/icons/ExitToApp';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AddToQueue from "@material-ui/icons/AddToQueue";
+import ExitToApp from "@material-ui/icons/ExitToApp";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles((theme) => ({
-  drawerPaper: { width: "inherit"},
+  drawerPaper: { width: "inherit" },
   link: {
     textDecoration: "none",
     color: theme.palette.text.primary,
   },
 }));
 
-
 function Two() {
   // two me error aa rah tha, capital karte hi it was now a component
   const classes = useStyles();
   const [roomMessages, setRoomMessages] = useState([]);
+  const [name, setName] = useState("");
   const { roomId } = useParams();
   useEffect(() => {
+    async function username() {
+      const { name } = await userInfo();
+      setName(name);
+    }
+    username();
     db.collection("rooms") // message retrieved
       .doc("1ZlbUtg0OxyeBQWAevHC")
       .collection("messages")
@@ -52,12 +57,13 @@ function Two() {
         setRoomMessages(snapshot.docs.map((doc) => doc.data()))
       );
   }, []);
-  const logout=()=>{
-    window.location.href='/';
-  }
+  const logout = () => {
+    window.location.href = "/";
+  };
   // const {name} = userInfo();
   // console.log("here it goes",name)
   // console.log(roomMessages);
+  console.log(name);
   return (
     <div>
       <Router>
@@ -74,7 +80,7 @@ function Two() {
                 <ListItemIcon>
                   <AccountCircleIcon />
                 </ListItemIcon>
-                <ListItemText primary={"Name"} />
+                <ListItemText primary={name} />
               </ListItem>
               <Link to="/two" className={classes.link}>
                 <ListItem button>
@@ -142,7 +148,7 @@ function Two() {
             </Route>
           </Switch>
         </div>
-        </Router>
+      </Router>
     </div>
   );
 }
@@ -153,6 +159,3 @@ export default Two;
 
 // internal routes hai :
 // although page two is /two
-
-
-
