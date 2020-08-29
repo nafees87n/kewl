@@ -37,6 +37,8 @@ const Messages = ({message,timestamp}) => {
       <CardContent>
         <Typography variant="body2" component="p">
           {message}
+          {/* name of the sender and time at which message is sent */}
+          {/* {timestamp} //Error: Objects are not valid as a React child (found: object with keys {seconds, nanoseconds}). */}
         </Typography>
       </CardContent>
   </Card>

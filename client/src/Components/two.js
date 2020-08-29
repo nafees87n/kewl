@@ -2,6 +2,9 @@ import React,{ useState, useEffect } from 'react';
 import db from "../firebase.js";
 import DiscussionRooms from "./chats/discussionrooms.js";
 import Chatroom from "./chats/chatroom1";
+import ProtectedRoute from "./ProtectedRoute";
+import userInfo from "./userinfo/userinfo";
+
 // import { Router } from 'express';
 // import { Switch } from '@material-ui/core';
 // decoupled code => code which acts as a listener (ex- directly connected to db)
@@ -52,6 +55,8 @@ function Two() {
   const logout=()=>{
     window.location.href='/';
   }
+  // const {name} = userInfo();
+  // console.log("here it goes",name)
   // console.log(roomMessages);
   return (
     <div>

@@ -6,6 +6,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import {  BrowserRouter as Router,  Switch, Route, Link} from "react-router-dom";
 import HomeIcon from '@material-ui/icons/Home';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
@@ -64,6 +65,10 @@ export default function CustomizedMenus() {
     setAnchorEl(null);
   };
 
+  const logout=()=>{
+    window.location.href='/';
+  }
+
   const classes = useStyles();
   return (
     <div>
@@ -87,7 +92,9 @@ export default function CustomizedMenus() {
           <ListItemIcon>
             <HomeIcon fontSize="large" />
           </ListItemIcon>
+          <Link to="/two" className={classes.link}>
           <ListItemText primary="Home" />
+          </Link>
         </StyledMenuItem>
         <StyledMenuItem>
           {/* <ListItemIcon>
@@ -96,13 +103,17 @@ export default function CustomizedMenus() {
           <div className={classes.root}>
           <Avatar>SG</Avatar>
           </div>
+          <Link to="#" className={classes.link}>
           <ListItemText primary="Profile" />
+          </Link>
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
             <ExitToAppIcon fontSize="large" />
           </ListItemIcon>
+          <Link onClick={logout} className={classes.link}>
           <ListItemText primary="Log Out" />
+          </Link>
         </StyledMenuItem>
       </StyledMenu>
     </div>
