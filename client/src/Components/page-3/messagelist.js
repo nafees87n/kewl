@@ -24,9 +24,9 @@ const Messagelist = () => {
                 )
             )
         )
-    }, [])
+    })
 
-    console.log("messages >>>>>>>",roomMessages)
+    // console.log("messages >>>>>>>",roomMessages)
 
     return (
         <div>

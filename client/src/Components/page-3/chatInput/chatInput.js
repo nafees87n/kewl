@@ -1,35 +1,48 @@
-import React,{useState} from "react";
-import { Button } from '@material-ui/core';
-import db from "../../../firebase"
-function ChatInput({channelName,channelId}) {
-// 3:48
-    const [input,setInput] = useState('');
+import React, { useState } from "react";
+import { Button } from "@material-ui/core";
+import db from "../../../firebase";
+import firebase from "firebase";
+import { useEffect } from "react";
+import userInfo from "../../userinfo/userinfo";
+function ChatInput({ channelName, channelId }) {
+  // 3:48
+  const [firstName, setFirstName] = useState("");
+  const [input, setInput] = useState("");
 
-    const sendMessage =e =>{
-        e.preventDefault();
-
-        if(channelId){
-            db
-            .collection('rooms')
-            .doc(channelId)
-            .collection('messages')(
-                {message: input}
-            )
-        }
+  useEffect(() => {
+    async function firstname() {
+      const { given_name } = await userInfo();
+      setFirstName(given_name);
     }
+    firstname();
+  }, []);
+  const sendMessage = (e) => {
+    e.preventDefault();
+    if (channelId) {
+      db.collection("rooms").doc(channelId).collection("messages").add({
+        message: input,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        username: firstName,
+      });
+      setInput('');
+    }
+  };
 
-    return(
-        <div className= "joinroom">
-        <form>
-            <input 
-            placeholder={`Message here`} 
-            value = {input}
-            onChange= { e=> setInput(e.target.value)}
-            />
-            <Button type="submit" onclick={sendMessage}>SEND</Button>
-        </form>
+  return (
+    <div className="joinroom">
+      <form>
+        <input
+          placeholder={`Message here`}
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+        />
+        {console.log(input)}
+        <Button type="submit" onClick={sendMessage}>
+          SEND
+        </Button>
+      </form>
     </div>
-    )
-    }
+  );
+}
 
 export default ChatInput;
