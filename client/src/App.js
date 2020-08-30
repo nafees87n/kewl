@@ -20,8 +20,8 @@ class App extends Component {
             path="/dashboard"
             component={Dashboard}
           />
-          <Route exact={true} path="/two" component={Two} />
-          <Route exact={true} path="/rooms" component={DiscussionRooms} />
+          <Route exact={false} path="/two" component={Two} />
+          <Route exact={false} path="/two/rooms" component={DiscussionRooms} />
           <Route exact={true} path="/login/redirect" component={Loading} />
           {/* <Route exact={true} path="/three" component={Three} /> */}
           <Route exact path="/room/:roomId" component={withRouter(Chatroom)}>

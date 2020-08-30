@@ -30,10 +30,11 @@ const Messagelist = () => {
 
     return (
         <div>
-            {roomMessages.map(({message,timestamp}) => (
+            {roomMessages.map(({message,timestamp,username}) => (
                 <Messages 
                 message={message} 
                 timestamp={timestamp}
+                username={username}
                 />
             ))}
         </div>

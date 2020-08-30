@@ -90,7 +90,7 @@ function Two() {
                   <ListItemText primary={"Home"} />
                 </ListItem>
               </Link>
-              <Link to="/rooms" className={classes.link}>
+              <Link to="/two/rooms" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <Forum />
@@ -98,7 +98,7 @@ function Two() {
                   <ListItemText primary={"Discussion Rooms"} />
                 </ListItem>
               </Link>
-              <Link to="/createroom" className={classes.link}>
+              <Link to="/two/createroom" className={classes.link}>
                 <ListItem button>
                   <ListItemIcon>
                     <AddToQueue />
@@ -128,7 +128,7 @@ function Two() {
                 {/* <Three /> */}
               </Container>
             </Route>
-            <Route path="/rooms">
+            <Route path="/two/rooms">
               <Container>
                 <Typography variant="h3" gutterBottom>
                   Rooms to be displayed here
@@ -136,7 +136,7 @@ function Two() {
                 <DiscussionRooms />
               </Container>
             </Route>
-            <Route exact path="/createroom">
+            <Route exact path="/two/createroom">
               <Container>
                 <Typography variant="h3" gutterBottom>
                   Create new room

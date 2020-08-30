@@ -36,7 +36,7 @@ const Card = ({ title }) => {
       {/* </Router> */}
       <Router>
         <Switch>
-        <Route exact path="/rooms/roomId" component={withRouter(Chatroom)} />
+        <Route exact path="two/rooms/roomId" component={withRouter(Chatroom)} />
         </Switch>
       </Router>
     </div>

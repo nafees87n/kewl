@@ -26,17 +26,9 @@ const useStyles = makeStyles({
   },
 });
 
-const Messages = ({ message, timestamp }) => {
+const Messages = ({ message, timestamp,username }) => {
   const classes = useStyles();
   const bull = <span className={classes.bullet}>•</span>;
-  const [firstName, setFirstName] = useState("");
-  useEffect(() => {
-    async function username() {
-      const { given_name } = await userInfo();
-      setFirstName(given_name);
-    }
-    username();
-  });
   return (
     <div>
       <ScrollToBottom className="messages">
@@ -45,7 +37,8 @@ const Messages = ({ message, timestamp }) => {
           <CardContent>
             <Typography variant="body2" component="p">
               {message}
-              {firstName}
+              {"    "}
+              {username}
               {/* name of the sender and time at which message is sent */}
               {/* {timestamp} //Error: Objects are not valid as a React child (found: object with keys {seconds, nanoseconds}). */}
             </Typography>
