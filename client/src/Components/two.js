@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import db from "../firebase.js";
 import DiscussionRooms from "./chats/discussionrooms.js";
 import Chatroom from "./chats/chatroom1";
+import Form from "./chats/form.js";
 import ProtectedRoute from "./ProtectedRoute";
 import userInfo from "./userinfo/userinfo";
 
@@ -120,10 +121,10 @@ function Two() {
             <Route exact path="/two">
               <Container>
                 <Typography variant="h3" gutterBottom>
-                  Home
+                Welcome To Kewl
                 </Typography>
                 <Typography variant="body1" gutterBottom>
-                  WELCOME TO KEWL
+                Kewl is a multi-topic discussion forum wherein you can indulge in real-time discussions on certin topics with like minded people to generate meaningful thoughts on the topic.    
                 </Typography>
                 {/* <Three /> */}
               </Container>
@@ -131,7 +132,7 @@ function Two() {
             <Route path="/two/rooms">
               <Container>
                 <Typography variant="h3" gutterBottom>
-                  Rooms to be displayed here
+                  Discussion Rooms
                 </Typography>
                 <DiscussionRooms />
               </Container>
@@ -142,8 +143,9 @@ function Two() {
                   Create new room
                 </Typography>
                 <Typography variant="body1" gutterBottom>
-                  Form for a new room here
+                  Fill this request form to create a new room
                 </Typography>
+                <Form />
               </Container>
             </Route>
           </Switch>
