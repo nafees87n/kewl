@@ -11,7 +11,7 @@ import {
   } from "react-router-dom";
 
 
-const Card = ({ title }) => {
+const Card = ({ title , description}) => {
 
   const raiseInvoiceClicked=()=>{
     var title1 = title.replace(/\s/g,''); 
@@ -19,11 +19,12 @@ const Card = ({ title }) => {
   }
 
   return (
-    <div className="bg-light-green dib br3 pa3 ma2 grow bw2 shadow-5">
+    <div className="bg-light-blue w-50 dib br3 pa3 ma2 grow bw2 shadow-5 ">
       <div>
-        <Link onClick={raiseInvoiceClicked}>
+        <Link onClick={raiseInvoiceClicked} className="no-underline link dim white">
           <h2>{title} </h2>
         </Link>
+          <h4>{description} </h4>
       </div>
       {/* <Router> */}
         {/* <h2> HEY !!! </h2> */}

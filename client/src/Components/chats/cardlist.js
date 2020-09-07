@@ -13,7 +13,8 @@ const Cardlist = () => {
             setChannels(
                 snapshot.docs.map((doc)=> ({
                     id: doc.id,
-                    name: doc.data().name
+                    name: doc.data().name,
+                    description: doc.data().description
                 })))
         ))
         // db.collection("rooms") // message retrieved
@@ -32,7 +33,7 @@ const Cardlist = () => {
     return(
         <div>
             {channels.map(channel => (
-              <Card title = {channel.name}/>
+              <Card title = {channel.name} description = {channel.description}/>
             ))}
         </div>
     );  

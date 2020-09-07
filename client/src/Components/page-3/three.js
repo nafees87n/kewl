@@ -22,14 +22,14 @@ class Three extends Component{
                     <div id= "left_inner">
                         < Chatbox />
                     </div>
-                    <div id= "right_inner" >   
+                    {/* <div id= "right_inner" >   
                         <div>
                         < GeneralInfo />
                         </div>
                         <div>
                         < DisplayUsers />
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         )
