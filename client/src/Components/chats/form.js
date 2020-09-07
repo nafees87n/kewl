@@ -5,6 +5,7 @@ import Input from "./formComponents/Input";
 import TextArea from "./formComponents/TextArea";
 import Button from "./formComponents/Button";
 import request from 'superagent';
+import axios from 'axios'
 
 class Form extends Component {
   constructor(props) {
@@ -82,20 +83,22 @@ class Form extends Component {
     //     console.log("Successful" + data);
     //   });
     // });
-    const data = {
-      newRoom: this.state.newRoom,
-    };
-    request
-        .post('localhost:5000/form')
-        .send(data)
-        .set('Accept', 'application/json')
-        .end((err, res) => {
-          if (err || !res.ok) {
-            console.log('Error occured');
-          } else {
-            console.log('Success');
-          }
-        });
+    // const data = {
+    //   newRoom: this.state.newRoom,
+    // };
+    // console.log(data)
+    axios.post('http://localhost:5000/form',this.state.newRoom).then(res=>console.log(res))
+    // request
+    //     .post('http://localhost:5000/form')
+    //     .send(data)
+    //     .set('Accept', 'application/json')
+    //     .end((err, res) => {
+    //       if (err) {
+    //         console.log('Error occured');
+    //       } else {
+    //         console.log('Success');
+    //       }
+    //     });
     }
 
     render() {
