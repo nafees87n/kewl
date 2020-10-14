@@ -1,20 +1,17 @@
 import firebase from "firebase";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyDMNRZQaDOENMs85lK8pTVke0Csgu9ExqI",
-    authDomain: "kewl-72e10.firebaseapp.com",
-    databaseURL: "https://kewl-72e10.firebaseio.com",
-    projectId: "kewl-72e10",
-    storageBucket: "kewl-72e10.appspot.com",
-    messagingSenderId: "128484463098",
-    appId: "1:128484463098:web:490730773ba437d0451443",
-    measurementId: "G-VC9BKNJ3SP"
-  };
-
-const firebaseApp = firebase.initializeApp(firebaseConfig)
+var firebaseConfig = {
+  apiKey: "AIzaSyBCGYrCW2e-tyvkTPzRkt6hKUzyRuCy7Xs",
+  authDomain: "chatapp-284218.firebaseapp.com",
+  databaseURL: "https://chatapp-284218.firebaseio.com",
+  projectId: "chatapp-284218",
+  storageBucket: "chatapp-284218.appspot.com",
+  messagingSenderId: "663571945289",
+  appId: "1:663571945289:web:a31e1fe6d76ac8d9812c98",
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 // not writing the authentication code
 // this seems an easier way for google o auth service
 
 export default db;
-

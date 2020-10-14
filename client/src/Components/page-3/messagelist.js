@@ -1,44 +1,36 @@
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from "react";
 import db from "../../firebase.js";
 import Messages from "./messages/messages";
-import {  
-    useParams
-  } from "react-router-dom";
+import { useParams } from "react-router-dom";
 // 2:57,3:36
 
 const Messagelist = () => {
+  const [roomMessages, setRoomMessages] = useState([]);
 
-    const [roomMessages,setRoomMessages] = useState([]);
+  const { roomId } = useParams();
+  var temp = [];
 
-    const {roomId} = useParams() ;
-    
-    useEffect(() => {
+  useEffect(() => {
     db.collection("rooms") // message retrieved
-        .doc(roomId)
-        .collection("messages")
-        .orderBy("timestamp","asc")
-        .onSnapshot(
-            (snapshot) => (
-                setRoomMessages(
-                    snapshot.docs.map(doc => doc.data())
-                )
-            )
-        )
-    })
+      .doc(roomId)
+      .collection("messages")
+      .onSnapshot((snapshot) =>
+        setRoomMessages(snapshot.docs.map((doc) => doc.data()))
+      );
+  }, [roomId]);
+  let msg = roomMessages.map(({ message, timestamp, username }) => (
+    <Messages message={message} timestamp={timestamp} username={username} />
+  ));
+  // console.log("messages >>>>>>>",roomMessages)
 
-    // console.log("messages >>>>>>>",roomMessages)
+  return (
+    <div>
+      {msg}
+      {/* {roomMessages.map(({ message, timestamp, username }) => (
+        <Messages message={message} timestamp={timestamp} username={username} />
+      ))} */}
+    </div>
+  );
+};
 
-    return (
-        <div>
-            {roomMessages.map(({message,timestamp,username}) => (
-                <Messages 
-                message={message} 
-                timestamp={timestamp}
-                username={username}
-                />
-            ))}
-        </div>
-    )
-}
-
-export default Messagelist
+export default Messagelist;

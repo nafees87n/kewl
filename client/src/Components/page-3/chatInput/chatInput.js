@@ -19,12 +19,19 @@ function ChatInput({ channelName, channelId }) {
   const sendMessage = (e) => {
     e.preventDefault();
     if (channelId) {
-      db.collection("rooms").doc(channelId).collection("messages").add({
-        message: input,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        username: firstName,
-      });
-      setInput('');
+      db.collection("rooms")
+        .doc(channelId)
+        .collection("messages")
+        .doc(new Date().getTime().toString())
+        .set(
+          {
+            message: input,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+            username: firstName,
+          },
+          { merge: true }
+        );
+      setInput("");
     }
   };
 
