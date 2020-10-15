@@ -87,7 +87,7 @@ class Form extends Component {
     //   newRoom: this.state.newRoom,
     // };
     // console.log(data)
-    axios.post('http://localhost:5000/form',this.state.newRoom).then(res=>console.log(res))
+    axios.post('/form',this.state.newRoom).then(res=>console.log(res))
     // request
     //     .post('http://localhost:5000/form')
     //     .send(data)

@@ -9,7 +9,7 @@ export function Loading() {
     const params = new URL(window.location.href).searchParams;
     const accesscode = params.get("code");
     async function request() {
-      await Axios.get("http://localhost:5000/login/redirect", {
+      await Axios.get("/login/redirect", {
         params: {
           code: accesscode,
         },
