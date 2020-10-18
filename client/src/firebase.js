@@ -1,14 +1,15 @@
 import firebase from "firebase";
-
 var firebaseConfig = {
-  apiKey: "AIzaSyBCGYrCW2e-tyvkTPzRkt6hKUzyRuCy7Xs",
-  authDomain: "chatapp-284218.firebaseapp.com",
-  databaseURL: "https://chatapp-284218.firebaseio.com",
-  projectId: "chatapp-284218",
-  storageBucket: "chatapp-284218.appspot.com",
-  messagingSenderId: "663571945289",
-  appId: "1:663571945289:web:a31e1fe6d76ac8d9812c98",
+  apiKey: "AIzaSyDSLK5veegtGk4WvE9tZGWPvhEWW5vYedY",
+  authDomain: "kewl-dev.firebaseapp.com",
+  databaseURL: "https://kewl-dev.firebaseio.com",
+  projectId: "kewl-dev",
+  storageBucket: "kewl-dev.appspot.com",
+  messagingSenderId: "613883556246",
+  appId: "1:613883556246:web:14488b20d56dbe2ccbedb7",
+  measurementId: "G-47YM7ZH9X1",
 };
+
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const db = firebaseApp.firestore();
 // not writing the authentication code

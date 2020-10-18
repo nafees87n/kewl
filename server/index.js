@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const login = require("./routes/login");
 const cookieParser = require("cookie-parser");
-const Room = require("./db/db");
+const Room = require("./db");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
