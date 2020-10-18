@@ -1,9 +1,7 @@
 // leave room option also needs to be implemented
 import React,{ Component } from "react";
-import GeneralInfo from "./generalInfo/generalInfo.js";
 import Chatbox from "./chatbox/chatbox.js";
 import Menu from "./menu/menu.js";
-import DisplayUsers from "./displayUsers/displayUsers.js";
 import "./three.css";
 
 class Three extends Component{

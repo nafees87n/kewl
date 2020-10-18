@@ -1,33 +1,32 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
-import {  BrowserRouter as Router,  Switch, Route, Link} from "react-router-dom";
-import HomeIcon from '@material-ui/icons/Home';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import React from "react";
+import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import { Link } from "react-router-dom";
+import HomeIcon from "@material-ui/icons/Home";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-import Avatar from '@material-ui/core/Avatar';
+import Avatar from "@material-ui/core/Avatar";
 
 const StyledMenu = withStyles({
   paper: {
-    border: '1px solid #d3d4d5',
+    border: "1px solid #d3d4d5",
   },
 })((props) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
-      vertical: 'bottom',
-      horizontal: 'right',
+      vertical: "bottom",
+      horizontal: "right",
     }}
     transformOrigin={{
-      vertical: 'top',
-      horizontal: 'center',
+      vertical: "top",
+      horizontal: "center",
     }}
     {...props}
   />
@@ -35,9 +34,9 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
-    '&:focus': {
+    "&:focus": {
       backgroundColor: theme.palette.primary.main,
-      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
         color: theme.palette.common.white,
       },
     },
@@ -46,13 +45,12 @@ const StyledMenuItem = withStyles((theme) => ({
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    '& > *': {
+    display: "flex",
+    "& > *": {
       margin: theme.spacing(1),
     },
   },
 }));
-
 
 export default function CustomizedMenus() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -65,9 +63,9 @@ export default function CustomizedMenus() {
     setAnchorEl(null);
   };
 
-  const logout=()=>{
-    window.location.href='/';
-  }
+  const logout = () => {
+    window.location.href = "/";
+  };
 
   const classes = useStyles();
   return (
@@ -93,7 +91,7 @@ export default function CustomizedMenus() {
             <HomeIcon fontSize="large" />
           </ListItemIcon>
           <Link to="/two" className={classes.link}>
-          <ListItemText primary="Home" />
+            <ListItemText primary="Home" />
           </Link>
         </StyledMenuItem>
         <StyledMenuItem>
@@ -101,10 +99,10 @@ export default function CustomizedMenus() {
             <AccountCircleIcon fontSize="small" />
           </ListItemIcon> */}
           <div className={classes.root}>
-          <Avatar>SG</Avatar>
+            <Avatar>SG</Avatar>
           </div>
           <Link to="#" className={classes.link}>
-          <ListItemText primary="Profile" />
+            <ListItemText primary="Profile" />
           </Link>
         </StyledMenuItem>
         <StyledMenuItem>
@@ -112,11 +110,10 @@ export default function CustomizedMenus() {
             <ExitToAppIcon fontSize="large" />
           </ListItemIcon>
           <Link onClick={logout} className={classes.link}>
-          <ListItemText primary="Log Out" />
+            <ListItemText primary="Log Out" />
           </Link>
         </StyledMenuItem>
       </StyledMenu>
     </div>
   );
 }
-

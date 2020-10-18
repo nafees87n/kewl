@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import db from "../../firebase.js";
+import db from "../../firebase";
 import Messages from "./messages/messages";
 import { useParams } from "react-router-dom";
 // 2:57,3:36
@@ -8,7 +8,6 @@ const Messagelist = () => {
   const [roomMessages, setRoomMessages] = useState([]);
 
   const { roomId } = useParams();
-  var temp = [];
 
   useEffect(() => {
     db.collection("rooms") // message retrieved

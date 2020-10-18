@@ -4,7 +4,6 @@ import React, { Component } from "react";
 import Input from "./formComponents/Input";
 import TextArea from "./formComponents/TextArea";
 import Button from "./formComponents/Button";
-import request from 'superagent';
 import axios from 'axios'
 
 class Form extends Component {

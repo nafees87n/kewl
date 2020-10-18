@@ -30,17 +30,17 @@ class Homepage extends Component {
           <div className="row homerow">
             <div className="col-md-6 col-sm-12 order-md-1 order-2" id="homebg">
               <div className="card bg-dark">
-                <img className="card-img" src="homepage.jpg" />
+                <img className="card-img" src="homepage.jpg" alt="home_image" />
               </div>
             </div>
             <div
               className="col-md-4 offset-md-2 col-sm-6 offset-sm-4 col-6 offset-4 order-md-2 order-1 align-self-center"
               id="loginbtn"
             >
-              <a className="googlebtn" onClick={this.signin}>
+              <button className="googlebtn" onClick={this.signin}>
                 <GoogleLogin className="googlebtn" />
                 {/* <Redirect to='/dashboard'/> */}
-              </a>
+              </button>
               {/* <a href={url} >
                 {this.state.clicked ? (
                   <Redirect clicked to="/dashboard" />

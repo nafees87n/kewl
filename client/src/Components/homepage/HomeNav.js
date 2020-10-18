@@ -1,10 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
 export function HomeNav() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark">
-      <a className="navbar-brand" style={{ color: "white" }} to="#">
+      <Link className="navbar-brand" style={{ color: "white" }} to="#">
         LOGO
-      </a>
+      </Link>
       <button
         className="navbar-toggler ml-auto"
         type="button"
@@ -18,15 +19,15 @@ export function HomeNav() {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
         <div className="navbar-nav ml-auto">
-          <a className="nav-item nav-link" to="#">
+          <Link className="nav-item nav-link" to="#">
             First
-          </a>
-          <a className="nav-item nav-link" to="#">
+          </Link>
+          <Link className="nav-item nav-link" to="#">
             First
-          </a>
-          <a className="nav-item nav-link" to="#">
+          </Link>
+          <Link className="nav-item nav-link" to="#">
             First
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
