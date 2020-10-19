@@ -1,32 +1,32 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ListItemText from "@material-ui/core/ListItemText";
-import { Link } from "react-router-dom";
-import HomeIcon from "@material-ui/icons/Home";
-import ExitToAppIcon from "@material-ui/icons/ExitToApp";
+import React from 'react';
+import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import { Link } from 'react-router-dom';
+import HomeIcon from '@material-ui/icons/Home';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
-import Avatar from "@material-ui/core/Avatar";
+import Avatar from '@material-ui/core/Avatar';
 
 const StyledMenu = withStyles({
   paper: {
-    border: "1px solid #d3d4d5",
-  },
+    border: '1px solid #d3d4d5'
+  }
 })((props) => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
     anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "right",
+      vertical: 'bottom',
+      horizontal: 'right'
     }}
     transformOrigin={{
-      vertical: "top",
-      horizontal: "center",
+      vertical: 'top',
+      horizontal: 'center'
     }}
     {...props}
   />
@@ -34,22 +34,22 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
-    "&:focus": {
+    '&:focus': {
       backgroundColor: theme.palette.primary.main,
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.white,
-      },
-    },
-  },
+      '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
+        color: theme.palette.common.white
+      }
+    }
+  }
 }))(MenuItem);
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
-    "& > *": {
-      margin: theme.spacing(1),
-    },
-  },
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1)
+    }
+  }
 }));
 
 export default function CustomizedMenus() {
@@ -64,7 +64,7 @@ export default function CustomizedMenus() {
   };
 
   const logout = () => {
-    window.location.href = "/";
+    window.location.href = '/';
   };
 
   const classes = useStyles();

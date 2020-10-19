@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 /* Import Components */
-import Input from "./formComponents/Input";
-import TextArea from "./formComponents/TextArea";
-import Button from "./formComponents/Button";
-import axios from 'axios'
+import Input from './formComponents/Input';
+import TextArea from './formComponents/TextArea';
+import Button from './formComponents/Button';
+import axios from 'axios';
 
 class Form extends Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class Form extends Component {
 
     this.state = {
       newRoom: {
-        name: "",
-        about: ""
-      },
+        name: '',
+        about: ''
+      }
     };
 
     this.handleTextArea = this.handleTextArea.bind(this);
@@ -28,7 +28,7 @@ class Form extends Component {
   handleFullName(e) {
     let value = e.target.value;
     this.setState(
-      prevState => ({
+      (prevState) => ({
         newRoom: {
           ...prevState.newRoom,
           name: value
@@ -39,10 +39,10 @@ class Form extends Component {
   }
 
   handleTextArea(e) {
-    console.log("Inside handleTextArea");
+    console.log('Inside handleTextArea');
     let value = e.target.value;
     this.setState(
-      prevState => ({
+      (prevState) => ({
         newRoom: {
           ...prevState.newRoom,
           about: value
@@ -56,7 +56,7 @@ class Form extends Component {
     let value = e.target.value;
     let name = e.target.name;
     this.setState(
-      prevState => ({
+      (prevState) => ({
         newRoom: {
           ...prevState.newRoom,
           [name]: value
@@ -86,7 +86,7 @@ class Form extends Component {
     //   newRoom: this.state.newRoom,
     // };
     // console.log(data)
-    axios.post('/form',this.state.newRoom).then(res=>console.log(res))
+    axios.post('/form', this.state.newRoom).then((res) => console.log(res));
     // request
     //     .post('http://localhost:5000/form')
     //     .send(data)
@@ -98,40 +98,40 @@ class Form extends Component {
     //         console.log('Success');
     //       }
     //     });
-    }
+  }
 
-    render() {
-        return (
-            <form className="container-fluid" onSubmit={this.handleFormSubmit}>
+  render() {
+    return (
+      <form className="container-fluid" onSubmit={this.handleFormSubmit}>
         <Input
-          inputType={"text"}
-          title={"Room Name"}
-          name={"name"}
+          inputType={'text'}
+          title={'Room Name'}
+          name={'name'}
           value={this.state.newRoom.name}
-          placeholder={"Enter the name of the room here"}
+          placeholder={'Enter the name of the room here'}
           handleChange={this.handleInput}
-        />{" "}
+        />{' '}
         <TextArea
-          title={"Room Description"}
+          title={'Room Description'}
           rows={5}
           value={this.state.newRoom.about}
-          name={"currentPetInfo"}
+          name={'currentPetInfo'}
           handleChange={this.handleTextArea}
-          placeholder={"Describe the details about the room"}
+          placeholder={'Describe the details about the room'}
         />
         <Button
           action={this.handleFormSubmit}
-          type={"primary"}
-          title={"Submit"}
+          type={'primary'}
+          title={'Submit'}
           style={buttonStyle}
-        />{" "}
+        />{' '}
       </form>
     );
   }
 }
 
 const buttonStyle = {
-  margin: "10px 10px 10px 10px"
+  margin: '10px 10px 10px 10px'
 };
 
 export default Form;

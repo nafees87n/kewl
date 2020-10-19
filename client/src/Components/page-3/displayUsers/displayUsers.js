@@ -1,13 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import { makeStyles } from "@material-ui/core/styles"
+import { makeStyles } from '@material-ui/core/styles';
 import PersonIcon from '@material-ui/icons/Person';
 
 import {
-  List, ListItem,
-  ListItemText, ListItemIcon,
-  Container, Typography,
-} from "@material-ui/core";
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Container,
+  Typography
+} from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
@@ -15,51 +18,47 @@ const useStyles = makeStyles((theme) => ({
     textDecoration: 'none',
     color: theme.palette.text.primary
   }
-}))
+}));
 
 function DisplayUsers() {
-    const classes = useStyles();
-    return (
-        <div className="Info" style={{textAlign : "center"}}>
+  const classes = useStyles();
+  return (
+    <div className="Info" style={{ textAlign: 'center' }}>
+      USERS:
+      <List>
+        <ListItem>
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary={'User1'} />
+        </ListItem>
 
-    USERS:
-    <List>
-      <ListItem>
-      <ListItemIcon>
+        <ListItem>
+          <ListItemIcon>
             <PersonIcon />
-      </ListItemIcon>
-        <ListItemText primary={"User1"} />
-      </ListItem>
+          </ListItemIcon>
+          <ListItemText primary={'User2'} />
+        </ListItem>
 
-      <ListItem>
-      <ListItemIcon>
+        <ListItem>
+          <ListItemIcon>
             <PersonIcon />
-      </ListItemIcon>
-        <ListItemText primary={"User2"} />
-      </ListItem>
-      
-      <ListItem>
-      <ListItemIcon>
+          </ListItemIcon>
+          <ListItemText primary={'User3'} />
+        </ListItem>
+
+        <ListItem>
+          <ListItemIcon>
             <PersonIcon />
-      </ListItemIcon>
-        <ListItemText primary={"User3"} />
-      </ListItem>
-      
-      <ListItem>
-      <ListItemIcon>
-            <PersonIcon />
-      </ListItemIcon>
-        <ListItemText primary={"User4"} />
-      </ListItem>
-    </List>
+          </ListItemIcon>
+          <ListItemText primary={'User4'} />
+        </ListItem>
+      </List>
     </div>
-    );
-  }
-
+  );
+}
 
 export default DisplayUsers;
-
-
 
 // const DisplayUsers = () =>(
 //     <div className="Info" >

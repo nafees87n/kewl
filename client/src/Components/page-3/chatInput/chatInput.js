@@ -1,13 +1,13 @@
-import React, { useState } from "react";
-import { Button } from "@material-ui/core";
-import db from "../../../firebase";
-import firebase from "firebase";
-import { useEffect } from "react";
-import userInfo from "../../userinfo/userinfo";
+import React, { useState } from 'react';
+import { Button } from '@material-ui/core';
+import db from '../../../firebase';
+import firebase from 'firebase';
+import { useEffect } from 'react';
+import userInfo from '../../userinfo/userinfo';
 function ChatInput({ channelName, channelId }) {
   // 3:48
-  const [firstName, setFirstName] = useState("");
-  const [input, setInput] = useState("");
+  const [firstName, setFirstName] = useState('');
+  const [input, setInput] = useState('');
 
   useEffect(() => {
     async function firstname() {
@@ -19,19 +19,19 @@ function ChatInput({ channelName, channelId }) {
   const sendMessage = (e) => {
     e.preventDefault();
     if (channelId) {
-      db.collection("rooms")
+      db.collection('rooms')
         .doc(channelId)
-        .collection("messages")
+        .collection('messages')
         .doc(new Date().getTime().toString())
         .set(
           {
             message: input,
             timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            username: firstName,
+            username: firstName
           },
           { merge: true }
         );
-      setInput("");
+      setInput('');
     }
   };
 

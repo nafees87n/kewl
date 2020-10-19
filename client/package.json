@@ -13,7 +13,7 @@
     "firebase": "^7.24.0",
     "js-cookie": "^2.2.1",
     "material-ui-icons": "^1.0.0-beta.36",
-    "react": "^16.13.1",
+    "react": "^16.14.0",
     "react-card-flip": "^1.0.11",
     "react-dom": "^16.13.1",
     "react-flippy": "^0.1.5",

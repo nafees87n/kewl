@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import DiscussionRooms from "./chats/discussionrooms.js";
-import Form from "./chats/form.js";
-import userInfo from "./userinfo/userinfo";
+import React, { useState, useEffect } from 'react';
+import DiscussionRooms from './chats/discussionrooms.js';
+import Form from './chats/form.js';
+import userInfo from './userinfo/userinfo';
 
 // import { Router } from 'express';
 // import { Switch } from '@material-ui/core';
 // decoupled code => code which acts as a listener (ex- directly connected to db)
 // import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import {
   Drawer,
   List,
@@ -17,27 +17,27 @@ import {
   ListItemIcon,
   ListItemText,
   Container,
-  Typography,
-} from "@material-ui/core";
+  Typography
+} from '@material-ui/core';
 
-import HomeIcon from "@material-ui/icons/Home";
-import Forum from "@material-ui/icons/Forum";
-import AddToQueue from "@material-ui/icons/AddToQueue";
-import ExitToApp from "@material-ui/icons/ExitToApp";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+import HomeIcon from '@material-ui/icons/Home';
+import Forum from '@material-ui/icons/Forum';
+import AddToQueue from '@material-ui/icons/AddToQueue';
+import ExitToApp from '@material-ui/icons/ExitToApp';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const useStyles = makeStyles((theme) => ({
-  drawerPaper: { width: "inherit" },
+  drawerPaper: { width: 'inherit' },
   link: {
-    textDecoration: "none",
-    color: theme.palette.text.primary,
-  },
+    textDecoration: 'none',
+    color: theme.palette.text.primary
+  }
 }));
 
 function Two() {
   // two me error aa rah tha, capital karte hi it was now a component
   const classes = useStyles();
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   useEffect(() => {
     async function username() {
       const { name } = await userInfo();
@@ -46,7 +46,7 @@ function Two() {
     username();
   }, []);
   const logout = () => {
-    window.location.href = "/";
+    window.location.href = '/';
   };
   // const {name} = userInfo();
   // console.log("here it goes",name)
@@ -55,9 +55,9 @@ function Two() {
   return (
     <div>
       <Router>
-        <div style={{ display: "flex" }}>
+        <div style={{ display: 'flex' }}>
           <Drawer
-            style={{ width: "220px" }}
+            style={{ width: '220px' }}
             variant="persistent"
             anchor="left"
             open={true}
@@ -75,7 +75,7 @@ function Two() {
                   <ListItemIcon>
                     <HomeIcon />
                   </ListItemIcon>
-                  <ListItemText primary={"Home"} />
+                  <ListItemText primary={'Home'} />
                 </ListItem>
               </Link>
               <Link to="/two/rooms" className={classes.link}>
@@ -83,7 +83,7 @@ function Two() {
                   <ListItemIcon>
                     <Forum />
                   </ListItemIcon>
-                  <ListItemText primary={"Discussion Rooms"} />
+                  <ListItemText primary={'Discussion Rooms'} />
                 </ListItem>
               </Link>
               <Link to="/two/createroom" className={classes.link}>
@@ -91,7 +91,7 @@ function Two() {
                   <ListItemIcon>
                     <AddToQueue />
                   </ListItemIcon>
-                  <ListItemText primary={"Create New Room"} />
+                  <ListItemText primary={'Create New Room'} />
                 </ListItem>
               </Link>
               <Link onClick={logout} className={classes.link}>
@@ -99,7 +99,7 @@ function Two() {
                   <ListItemIcon>
                     <ExitToApp />
                   </ListItemIcon>
-                  <ListItemText primary={"Log Out"} />
+                  <ListItemText primary={'Log Out'} />
                 </ListItem>
               </Link>
             </List>
@@ -108,10 +108,12 @@ function Two() {
             <Route exact path="/two">
               <Container>
                 <Typography variant="h3" gutterBottom>
-                Welcome To Kewl
+                  Welcome To Kewl
                 </Typography>
                 <Typography variant="body1" gutterBottom>
-                Kewl is a multi-topic discussion forum wherein you can indulge in real-time discussions on certin topics with like minded people to generate meaningful thoughts on the topic.    
+                  Kewl is a multi-topic discussion forum wherein you can indulge in real-time
+                  discussions on certin topics with like minded people to generate meaningful
+                  thoughts on the topic.
                 </Typography>
                 {/* <Three /> */}
               </Container>

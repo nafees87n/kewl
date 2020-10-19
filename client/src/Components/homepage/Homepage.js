@@ -1,21 +1,21 @@
-import React, { Component } from "react";
-import { HomeNav } from "./HomeNav";
-import { GoogleLogin } from "react-google-login";
-import Cookies from "js-cookie";
-const client_key=process.env.REACT_APP_CLIENTID;
+import React, { Component } from 'react';
+import { HomeNav } from './HomeNav';
+import { GoogleLogin } from 'react-google-login';
+import Cookies from 'js-cookie';
+const client_key = process.env.REACT_APP_CLIENTID;
 class Homepage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&client_id=${client_key}`,
+      url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&client_id=${client_key}`
     };
     this.signin = this.signin.bind(this);
   }
   componentDidMount() {
-    if (Cookies.get("chatemail")) {
-      let email = Cookies.get("chatemail");
+    if (Cookies.get('chatemail')) {
+      let email = Cookies.get('chatemail');
       this.setState({
-        url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&login_hint=${email}&client_id=${client_key}`,
+        url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&login_hint=${email}&client_id=${client_key}`
       });
     }
   }

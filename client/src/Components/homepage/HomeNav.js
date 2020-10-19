@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 export function HomeNav() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark">
-      <Link className="navbar-brand" style={{ color: "white" }} to="#">
+      <Link className="navbar-brand" style={{ color: 'white' }} to="#">
         LOGO
       </Link>
       <button

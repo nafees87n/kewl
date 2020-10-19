@@ -1,0 +1,14 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "settings": {
+    "react": {
+      "version": "999.999.999"
+    }
+  },
+  "extends": ["airbnb", "prettier"],
+  "parser": "babel-eslint"
+}

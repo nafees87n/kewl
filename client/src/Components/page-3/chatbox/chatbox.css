@@ -1,9 +1,8 @@
-.ContainerChats{
- min-height: 75vh;   
- display: flex;
- flex-direction: column;
+.ContainerChats {
+  min-height: 75vh;
+  display: flex;
+  flex-direction: column;
 }
-.joinroom{
-    align-items: flex-end;
+.joinroom {
+  align-items: flex-end;
 }
-
