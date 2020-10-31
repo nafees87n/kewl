@@ -13,7 +13,8 @@ export function Loading() {
         params: {
           code: accesscode
         }
-      }).then((res) => Cookies.set('chatToken', res.data.token));
+      });
+      // .then((res) => Cookies.set('chatToken', res.data.token));
       const { email } = await userInfo();
       Cookies.set('chatemail', email);
       history.push('/dashboard');

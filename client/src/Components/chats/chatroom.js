@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Route, useParams } from 'react-router-dom';
 import Three from '../page-3/three';
 
 function Chatroom() {
@@ -7,6 +7,7 @@ function Chatroom() {
   return (
     <div>
       <Three roomname={roomId} />
+      <Route path="/dashboard" />
     </div>
   );
 }

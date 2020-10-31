@@ -4,9 +4,8 @@ import Messages from './messages/messages';
 import { useParams } from 'react-router-dom';
 // 2:57,3:36
 
-const Messagelist = () => {
+function Messagelist() {
   const [roomMessages, setRoomMessages] = useState([]);
-
   const { roomId } = useParams();
 
   useEffect(() => {
@@ -28,6 +27,6 @@ const Messagelist = () => {
       ))} */}
     </div>
   );
-};
+}
 
 export default Messagelist;

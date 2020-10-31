@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-export default class ProtectedRoute extends Component {
-  render() {
-    const Comp = this.props.component;
-    let isAuth = () => {
-      if (Cookies.get('chatemail')) return true;
-      return false;
-    };
-    // let isAuth=true;
-    return isAuth() ? <Comp /> : <Redirect to={{ pathname: '/' }} />;
-  }
-}
+const ProtectedRoute = ({ exact, path, component }) =>
+  Cookies.get('chatToken') ? (
+    <Route exact={exact} path={path} component={component} />
+  ) : (
+    <Redirect to={{ pathname: '/' }} />
+  );
+
+export default ProtectedRoute;

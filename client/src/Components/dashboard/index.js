@@ -3,7 +3,6 @@ import DiscussionRooms from './discussionrooms.js';
 import Form from './form.js';
 import userInfo from '../userinfo';
 import DashboardDrawer from './DashboardDrawer';
-
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Container, Typography } from '@material-ui/core';
 
@@ -55,6 +54,7 @@ function Dashboard() {
                 <Form />
               </Container>
             </Route>
+            {/* <Route exact path="/dashboard/rooms/:roomid" component={withRouter(Chatroom)} /> */}
           </Switch>
         </div>
       </Router>
