@@ -39,15 +39,7 @@ class Homepage extends Component {
             >
               <button className="googlebtn" onClick={this.signin}>
                 <GoogleLogin className="googlebtn" />
-                {/* <Redirect to='/dashboard'/> */}
               </button>
-              {/* <a href={url} >
-                {this.state.clicked ? (
-                  <Redirect clicked to="/dashboard" />
-                ) : (
-                  <p>Try</p>
-                )}
-              </a> */}
             </div>
           </div>
         </div>

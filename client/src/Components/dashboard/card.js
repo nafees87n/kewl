@@ -1,5 +1,5 @@
 import React from 'react';
-import Chatroom from './chatroom1';
+import Chatroom from '../chats/chatroom';
 import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 
 const Card = ({ title, description }) => {

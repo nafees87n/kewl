@@ -1,13 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import Two from './Components/page-2/two.js';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    {/* <Two /> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -3,7 +3,7 @@ import { Button } from '@material-ui/core';
 import db from '../../../firebase';
 import firebase from 'firebase';
 import { useEffect } from 'react';
-import userInfo from '../../userinfo/userinfo';
+import userInfo from '../../userinfo';
 function ChatInput({ channelName, channelId }) {
   // 3:48
   const [firstName, setFirstName] = useState('');

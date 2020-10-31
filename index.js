@@ -1,4 +1,5 @@
 const express = require('express');
+
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -13,4 +14,5 @@ app.use(cookieParser());
 app.use('/login', login);
 
 const port = process.env.PORT || 5000;
+// eslint-disable-next-line no-console
 app.listen(port, console.log(`Server started at port ${port}`));

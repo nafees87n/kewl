@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Axios from 'axios';
 import Cookies from 'js-cookie';
 import { useHistory } from 'react-router-dom'; // what is usehistory
-import userInfo from '../userinfo/userinfo';
+import userInfo from '../userinfo';
 export function Loading() {
   let history = useHistory();
   useEffect(() => {

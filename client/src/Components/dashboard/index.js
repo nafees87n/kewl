@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import DiscussionRooms from './chats/discussionrooms.js';
-import Form from './chats/form.js';
-import userInfo from './userinfo/userinfo';
+import DiscussionRooms from './discussionrooms.js';
+import Form from './form.js';
+import userInfo from '../userinfo';
 
 // import { Router } from 'express';
 // import { Switch } from '@material-ui/core';
@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-function Two() {
+function Dashboard() {
   // two me error aa rah tha, capital karte hi it was now a component
   const classes = useStyles();
   const [name, setName] = useState('');
@@ -144,7 +144,7 @@ function Two() {
   );
 }
 // creating a collection messages inside collection rooms
-export default Two;
+export default Dashboard;
 
 // // 3:08 => center karne ki trick
 
