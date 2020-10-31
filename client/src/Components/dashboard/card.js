@@ -1,35 +1,21 @@
 import React from 'react';
-import Chatroom from '../chats/chatroom';
-import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const Card = ({ title, description }) => {
-  const raiseInvoiceClicked = () => {
-    var title1 = title.replace(/\s/g, '');
-    window.location.href = `/room/${title1}`;
+  let history = useHistory();
+  const handleClick = () => {
+    history.goBack();
+    // history.push(`/rooms/${title}`);
   };
-
   return (
     <div className="bg-light-blue w-50 dib br3 pa3 ma2 grow bw2 shadow-5 ">
       <div>
-        <Link onClick={raiseInvoiceClicked} className="no-underline link dim white">
+        {/* <Link onClick={()=>window.location.href = `/dashboard/rooms/${title}`} className="no-underline link dim white"> */}
+        <Link onClick={handleClick} className="no-underline link dim white">
           <h2>{title} </h2>
         </Link>
         <h4>{description} </h4>
       </div>
-      {/* <Router> */}
-      {/* <h2> HEY !!! </h2> */}
-      {/* <Switch> */}
-      {/* <Route exact path="/rooms/roomId" component={withRouter(Chatroom)} /> */}
-      {/* <h2> HEY !!! </h2>
-            <Chatroom />
-          </Route>
-        </Switch> */}
-      {/* </Router> */}
-      <Router>
-        <Switch>
-          <Route exact path="two/rooms/roomId" component={withRouter(Chatroom)} />
-        </Switch>
-      </Router>
     </div>
   );
 };

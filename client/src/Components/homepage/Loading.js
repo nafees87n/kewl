@@ -16,8 +16,7 @@ export function Loading() {
       }).then((res) => Cookies.set('chatToken', res.data.token));
       const { email } = await userInfo();
       Cookies.set('chatemail', email);
-      history.push('/two');
-      // history.push("/dashboard");
+      history.push('/dashboard');
     }
     request();
   });

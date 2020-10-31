@@ -6,17 +6,18 @@ import Dashboard from './Components/dashboard';
 import Chatroom from './Components/chats/chatroom';
 // import ProtectedRoute from './Components/ProtectedRoute';
 import { Loading } from './Components/homepage/Loading';
-import DiscussionRooms from './Components/dashboard/discussionrooms';
+// import DiscussionRooms from './Components/dashboard/discussionrooms';
+import 'tachyons';
 class App extends Component {
   render() {
     return (
       <Router>
         <Switch>
           <Route exact path="/" component={Homepage} />
-          <Route path="/two" component={Dashboard} />
-          <Route path="/two/rooms" component={DiscussionRooms} />
+          <Route path="/dashboard" component={withRouter(Dashboard)} />
+          {/* <Route path="/dasboard/rooms" component={DiscussionRooms} /> */}
           <Route exact path="/login/redirect" component={Loading} />
-          <Route exact path="/room/:roomId" component={withRouter(Chatroom)} />
+          <Route exact path="/rooms/:roomId" component={Chatroom} />
         </Switch>
       </Router>
     );
