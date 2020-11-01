@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import DiscussionRooms from './discussionrooms.js';
-import Form from './form.js';
+import Form from './CreateRoom.js';
 import userInfo from '../userinfo';
 import DashboardDrawer from './DashboardDrawer';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
