@@ -1,28 +1,20 @@
-import React, { Component } from 'react';
+import React, { useState,useEffect } from 'react';
 import { HomeNav } from './HomeNav';
 import { GoogleLogin } from 'react-google-login';
 import Cookies from 'js-cookie';
 const client_key = process.env.REACT_APP_CLIENTID;
-class Homepage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&client_id=${client_key}`
-    };
-    this.signin = this.signin.bind(this);
-  }
-  componentDidMount() {
-    if (Cookies.get('chatemail')) {
+const Homepage=()=>  {
+  const [url,setUrl]=useState(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&client_id=${client_key}`)
+  useEffect(() => {
+    if (Cookies.get('chatemail')){
       let email = Cookies.get('chatemail');
-      this.setState({
-        url: `https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&login_hint=${email}&client_id=${client_key}`
-      });
-    }
+      setUrl(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&login_hint=${email}&client_id=${client_key}`)
+    }   
+  },[]);
+  function signin() {
+    window.location.href = url;
   }
-  signin() {
-    window.location.href = this.state.url;
-  }
-  render() {
+  
     return (
       <>
         <HomeNav />
@@ -37,7 +29,7 @@ class Homepage extends Component {
               className="col-md-4 offset-md-2 col-sm-6 offset-sm-4 col-6 offset-4 order-md-2 order-1 align-self-center"
               id="loginbtn"
             >
-              <button className="googlebtn" onClick={this.signin}>
+              <button className="googlebtn" onClick={signin}>
                 <GoogleLogin className="googlebtn" />
               </button>
             </div>
@@ -45,7 +37,7 @@ class Homepage extends Component {
         </div>
       </>
     );
-  }
+
 }
 
 export default Homepage;

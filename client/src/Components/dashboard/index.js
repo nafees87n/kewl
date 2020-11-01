@@ -67,4 +67,3 @@ export default Dashboard;
 // // 3:08 => center karne ki trick
 
 // internal routes hai :
-// although page two is /two
