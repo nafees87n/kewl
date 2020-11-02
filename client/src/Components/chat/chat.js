@@ -1,22 +1,20 @@
 // leave room option also needs to be implemented
+import { StylesProvider } from '@material-ui/core';
 import React from 'react';
 import Chatbox from './chatbox/chatbox.js';
 import Menu from './menu/menu.js';
-
-const Chat = ({roomname}) => {
+import styles from './styles/styles.module.css';
+const Chat = ({ roomname }) => {
   // this.props.roomname
   return (
-    <div id="outer">
-      <h1 style={{ textAlign: 'center' }}>Project Name</h1>
-
-      <div
-        id="heading"
-        style={{ textAlign: 'center', fontSize: '1.5rem', border: '2px solid black' }}
-      >
+    <div className={styles.chatPage} 
+    // id='outer'
+    >
+      <div className={styles.headingbar}>
         <strong>{roomname}</strong>
-        <Menu />
+        
       </div>
-
+      {/* <Menu /> */}
       <div id="inner_container">
         <div id="left_inner">
           <Chatbox />

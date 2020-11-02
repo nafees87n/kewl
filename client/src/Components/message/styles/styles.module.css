@@ -1,0 +1,9 @@
+.headingbar {
+  text-align: left;
+  font-size: 1.5rem;
+  border: 1px black dashed;
+  margin: 0 50px 0 50px;   
+}
+.chatPage{
+    margin:10px
+}

@@ -34,6 +34,7 @@ const StyledMenu = withStyles({
 
 const StyledMenuItem = withStyles((theme) => ({
   root: {
+    textDecoration:'none',
     '&:focus': {
       backgroundColor: theme.palette.primary.main,
       '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
@@ -46,9 +47,17 @@ const StyledMenuItem = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    alignItems:'center',
     '& > *': {
       margin: theme.spacing(1)
     }
+  },
+  listItemIcon:{
+    alignItems:"center",
+    verticalAlign:"middle"
+  },
+  link:{
+    textDecoration:"none"
   }
 }));
 
@@ -87,30 +96,30 @@ export default function CustomizedMenus() {
         onClose={handleClose}
       >
         <StyledMenuItem>
-          <ListItemIcon>
-            <HomeIcon fontSize="large" />
-          </ListItemIcon>
-          <Link to="/two" className={classes.link}>
-            <ListItemText primary="Home" />
+          <Link to="/dashboard" className={classes.link} >
+            <ListItemIcon className={classes.listItemIcon}>
+              <HomeIcon fontSize="large" />
+              <ListItemText primary="Home" />
+            </ListItemIcon>
           </Link>
         </StyledMenuItem>
         <StyledMenuItem>
           {/* <ListItemIcon>
             <AccountCircleIcon fontSize="small" />
           </ListItemIcon> */}
-          <div className={classes.root}>
-            <Avatar>SG</Avatar>
-          </div>
           <Link to="#" className={classes.link}>
+            <div className={classes.root}>
+              <Avatar>SG</Avatar>
             <ListItemText primary="Profile" />
+            </div>
           </Link>
         </StyledMenuItem>
         <StyledMenuItem>
-          <ListItemIcon>
-            <ExitToAppIcon fontSize="large" />
-          </ListItemIcon>
           <Link onClick={logout} className={classes.link}>
+            <ListItemIcon className={classes.listItemIcon}>
+              <ExitToAppIcon fontSize="large" />
             <ListItemText primary="Log Out" />
+            </ListItemIcon>
           </Link>
         </StyledMenuItem>
       </StyledMenu>

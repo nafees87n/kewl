@@ -3,12 +3,13 @@ import { HomeNav } from './HomeNav';
 import { GoogleLogin } from 'react-google-login';
 import Cookies from 'js-cookie';
 const client_key = process.env.REACT_APP_CLIENTID;
+const currUrl=window.location.href;
 const Homepage=()=>  {
-  const [url,setUrl]=useState(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&client_id=${client_key}`)
+  const [url,setUrl]=useState(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&client_id=${client_key}`)
   useEffect(() => {
     if (Cookies.get('chatemail')){
       let email = Cookies.get('chatemail');
-      setUrl(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=http://localhost:3000/login/redirect&login_hint=${email}&client_id=${client_key}`)
+      setUrl(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&login_hint=${email}&client_id=${client_key}`)
     }   
   },[]);
   function signin() {
