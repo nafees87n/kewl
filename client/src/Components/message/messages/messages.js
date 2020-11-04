@@ -1,14 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import ScrollToBottom from 'react-scroll-to-bottom';
 import { Grid, List, ListItem, ListItemText } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
     maxWidth: 500,
-    maxHeight: 100
+    maxHeight: 70,
+    margin: 'auto'
   },
   bullet: {
     display: 'inline-block',
@@ -22,22 +19,24 @@ const useStyles = makeStyles({
     marginBottom: 12
   },
   messageArea: {
-    height: '70vh',
+    // height: '70vh',
     overflowY: 'auto'
   },
   chatSection: {
-    width: '100%',
-    height: '80vh'
-  },
+    width: '50%',
+    backgroundColor: 'red'
+    // height: '80vh'
+  }
 });
 
 const Messages = ({ message, timestamp, username }) => {
   const classes = useStyles();
   // const bull = <span className={classes.bullet}>•</span>;
+  console.log(typeof(timestamp));
   return (
-    <div>
-      <ScrollToBottom className="messages">
-        {/* <Card className={classes.root}>
+    <>
+      {/* <ScrollToBottom className={classes.root}> */}
+      {/* <Card className={classes.root}>
           bg={"dark"}
           <CardContent>
             <Typography variant="body2" component="p">
@@ -49,29 +48,31 @@ const Messages = ({ message, timestamp, username }) => {
             </Typography>
           </CardContent>
         </Card> */}
-        <Grid container className={classes.chatSection}>
-          <Grid item xs={9}>
-            <List className={classes.messageArea}>
-              <ListItem key="1">
-                <Grid container>
-                  <Grid item xs={12}>
-                    <ListItemText primary={message}></ListItemText>
+      <Grid container className={classes.root}>
+        <Grid item xs={9} style={{ width: '100%' }}>
+          <List className={classes.messageArea}>
+            <ListItem>
+              <Grid container>
+                <Grid item xs={12}>
+                  <ListItemText primary={message}></ListItemText>
+                </Grid>
+                <Grid container xs={12}>
+                  <Grid item xs={6}>
+                    <ListItemText
+                      secondary={new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                    ></ListItemText>
                   </Grid>
-                  <Grid item xs={12}>
-                    <Grid item xs={6}>
-                      <ListItemText secondary={timestamp}></ListItemText>
-                    </Grid>
-                    <Grid item xs={6}>
-                      <ListItemText align='right' secondary={username}></ListItemText>
-                    </Grid>
+                  <Grid item xs={6}>
+                    <ListItemText align="right" secondary={username}></ListItemText>
                   </Grid>
                 </Grid>
-              </ListItem>
-            </List>
-          </Grid>
+              </Grid>
+            </ListItem>
+          </List>
         </Grid>
-      </ScrollToBottom>
-    </div>
+      </Grid>
+      {/* </ScrollToBottom> */}
+    </>
   );
 };
 

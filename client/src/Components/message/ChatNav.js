@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2)
   },
   title: {
-    display: 'none',
+    flexGrow: 1,
     [theme.breakpoints.up('sm')]: {
       display: 'block'
     }
@@ -173,7 +173,7 @@ export default function ChatNav({ roomname, picture, username }) {
 
   return (
     <div className={classes.grow}>
-      <AppBar position="static">
+      <AppBar color="secondary" position="static">
         <Toolbar>
           <IconButton
             edge="start"
@@ -186,6 +186,7 @@ export default function ChatNav({ roomname, picture, username }) {
           <Typography className={classes.title} variant="h6" noWrap>
             {roomname}
           </Typography>
+          
           {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
@@ -225,9 +226,7 @@ export default function ChatNav({ roomname, picture, username }) {
               }}
               color="inherit"
             >
-              
-                <ExitToAppOutlinedIcon />
-              
+              <ExitToAppOutlinedIcon />
             </IconButton>
           </div>
           <div className={classes.sectionMobile}>

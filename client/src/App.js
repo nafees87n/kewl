@@ -7,6 +7,7 @@ import ProtectedRoute from './Components/ProtectedRoute';
 import Dashboard from './Components/dashboard';
 import Chatroom from './Components/message';
 import { Loading } from './Components/homepage/Loading';
+import Chat from "./Components/message/Chat";
 import 'tachyons';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Route exact path="/login/redirect" component={Loading} />
         <ProtectedRoute exact path="/dashboard/rooms/:roomId" component={Chatroom} />
         <ProtectedRoute path="/dashboard" component={Dashboard} />
+        <Route path='/one' component={Chat}/>
       </Switch>
     </Router>
   );
