@@ -7,6 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start":"node index.js",
+    "heroku-postbuild": "cd client && yarn && yarn run build",
     "dev": "concurrently --kill-others-on-fail \"yarn run client\" \"yarn run server\"",
     "client": "cd client && yarn start",
     "server": "nodemon index",
