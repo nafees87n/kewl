@@ -5,11 +5,11 @@ import Cookies from 'js-cookie';
 const client_key = process.env.REACT_APP_CLIENTID;
 const currUrl=window.location.href;
 const Homepage=()=>  {
-  const [url,setUrl]=useState(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&client_id=${client_key}`)
+  const [url,setUrl]=useState(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&client_id=663571945289-n5o7daalove9ka7rrdu1k6fd9k5heu1d.apps.googleusercontent.com`)
   useEffect(() => {
     if (Cookies.get('chatemail')){
       let email = Cookies.get('chatemail');
-      setUrl(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&login_hint=${email}&client_id=${client_key}`)
+      setUrl(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&login_hint=${email}&client_id=663571945289-n5o7daalove9ka7rrdu1k6fd9k5heu1d.apps.googleusercontent.com`)
     }   
   },[]);
   function signin() {
