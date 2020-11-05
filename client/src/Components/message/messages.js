@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Grid, List, ListItem, ListItemText } from '@material-ui/core';
+import { Avatar, Grid,Paper } from '@material-ui/core';
 const useStyles = makeStyles({
   root: {
-    maxWidth: 500,
-    maxHeight: 70,
+    // maxWidth: 5000,
+    // maxHeight: 70,
     margin: 'auto'
   },
   bullet: {
@@ -20,19 +20,27 @@ const useStyles = makeStyles({
   },
   messageArea: {
     // height: '70vh',
-    overflowY: 'auto'
+    // overflowY: 'auto'
   },
   chatSection: {
     width: '50%',
     backgroundColor: 'red'
     // height: '80vh'
+  },
+  timestamp:{
+  textAlign:'right',
+  fontSize:'0.5em',
+  marginBottom:'0',
+  marginRight:'5px'
+  },
+  message:{
+    margin:'4px 9px'
   }
 });
 
-const Messages = ({ message, timestamp, username }) => {
+const Messages = ({ message, timestamp, username, picture }) => {
   const classes = useStyles();
   // const bull = <span className={classes.bullet}>•</span>;
-  console.log(typeof(timestamp));
   return (
     <>
       {/* <ScrollToBottom className={classes.root}> */}
@@ -48,10 +56,18 @@ const Messages = ({ message, timestamp, username }) => {
             </Typography>
           </CardContent>
         </Card> */}
-      <Grid container className={classes.root}>
-        <Grid item xs={9} style={{ width: '100%' }}>
+      <Grid
+        container
+        direction="row"
+        className={classes.root}
+        alignItems='center'
+        // justify='flex-end'
+        alignContent='center'
+        style={{ marginTop: '10px',paddingLeft:'5px', marginBottom:'10px' }}
+      >
+        {/* <Grid item xs={12} >
           <List className={classes.messageArea}>
-            <ListItem>
+            <ListItem style={{ width: '100%',position:'relative' }}>
               <Grid container>
                 <Grid item xs={12}>
                   <ListItemText primary={message}></ListItemText>
@@ -69,9 +85,20 @@ const Messages = ({ message, timestamp, username }) => {
               </Grid>
             </ListItem>
           </List>
+        </Grid> */}
+        <Grid alignContent='center' item xs={3} md={1}>
+          <Avatar style={{align:'center'}} src={picture} />
+        </Grid>
+        <Grid item xs={8} md={8}>
+        <strong>{username}</strong>
+          <Grid container component={Paper}>
+            <Grid item xs={12} className={classes.message}>{message} </Grid>
+            <Grid item xs={12} justify='flex-end' >
+              <p className={classes.timestamp}>{new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
-      {/* </ScrollToBottom> */}
     </>
   );
 };

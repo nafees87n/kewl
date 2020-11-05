@@ -17,7 +17,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div>
+    <div >
       <Router>
         <div style={{ display: 'flex' }}>
           <DashboardDrawer name={name} />

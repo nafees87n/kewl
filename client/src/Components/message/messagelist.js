@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import db from '../../firebase';
-import Messages from './messages/messages';
+import Messages from './messages';
 import { useParams } from 'react-router-dom';
 // 2:57,3:36
 
@@ -14,8 +14,8 @@ function Messagelist() {
       .collection('messages')
       .onSnapshot((snapshot) => setRoomMessages(snapshot.docs.map((doc) => doc.data())));
   }, [roomId]);
-  let msg = roomMessages.map(({ message, timestamp, username }) => (
-    <Messages message={message} timestamp={timestamp} username={username} />
+  let msg = roomMessages.map(({ message, timestamp, username,picture }) => (
+    <Messages message={message} timestamp={timestamp} username={username} picture={picture} />
   ));
   // console.log("messages >>>>>>>",roomMessages)
 

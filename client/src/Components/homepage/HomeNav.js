@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 export function HomeNav() {
   return (
-    <nav className="navbar navbar-expand-md navbar-dark">
+    <nav className="navbar navbar-dark" style={{backgroundColor:'#dc004e'}}>
       <Link className="navbar-brand" style={{ color: 'white' }} to="#">
-        LOGO
+        {'Kewl-> A Discussion Forum'}
       </Link>
-      <button
+      {/* <button
         className="navbar-toggler ml-auto"
         type="button"
         data-toggle="collapse"
@@ -29,7 +29,7 @@ export function HomeNav() {
             First
           </Link>
         </div>
-      </div>
+      </div> */}
     </nav>
   );
 }

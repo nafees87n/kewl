@@ -33,7 +33,7 @@ function DashbaordDrawer({name}) {
           <ListItemIcon>
             <AccountCircleIcon />
           </ListItemIcon>
-          <ListItemText primary={name} />
+          <ListItemText primary={name} color='white'  />
         </ListItem>
         <Link to="/dashboard" className={classes.link}>
           <ListItem button>

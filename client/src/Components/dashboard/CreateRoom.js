@@ -16,9 +16,9 @@ const CreateRoom = () => {
   function handleTextArea(e) {
     setNewRoomAbout(e.target.value);
   }
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
-    db.collection('rooms').doc(newRoomName).set(
+    await db.collection('rooms').doc(newRoomName).set(
       {
         name: newRoomName,
         description: newRoomAbout
@@ -27,6 +27,7 @@ const CreateRoom = () => {
     );
     setNewRoomName('');
     setNewRoomAbout('');
+    window.location.href = `/dashboard/rooms/${newRoomName}`;
   }
   return (
     <form className="container-fluid" onSubmit={handleFormSubmit}>
