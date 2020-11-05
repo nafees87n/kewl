@@ -7,12 +7,13 @@ const axios = require('axios').default;
 
 router.get('/redirect', async (req, res) => {
   // console.log("REQ CODE", req.query.code); //what is this code
+  const currUrl=window.location.href;
   const idToken = await axios
     .post('https://oauth2.googleapis.com/token', {
       code: req.query.code,
       client_id: process.env.CLIENTID,
       client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: 'http://localhost:3000/login/redirect',
+      redirect_uri: `http://${currUrl}/login/redirect`,
       grant_type: 'authorization_code'
     })
     .then((back) => back.data.id_token);
