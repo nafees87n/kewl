@@ -8,10 +8,12 @@ import { Container, Typography } from '@material-ui/core';
 
 function Dashboard() {
   const [name, setName] = useState('');
+  const [picture, setPicture] = useState('');
   useEffect(() => {
     async function username() {
-      const { name } = await userInfo();
+      const { name,picture } = await userInfo();
       setName(name);
+      setPicture(picture);
     }
     username();
   }, []);
@@ -20,7 +22,7 @@ function Dashboard() {
     <div >
       <Router>
         <div style={{ display: 'flex' }}>
-          <DashboardDrawer name={name} />
+          <DashboardDrawer name={name} picture={picture} />
           {/* drawer imported */}
           <Switch>
             <Route exact path="/dashboard">

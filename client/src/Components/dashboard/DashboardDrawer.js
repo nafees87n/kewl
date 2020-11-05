@@ -1,12 +1,12 @@
 import React from 'react';
-import { Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Avatar, Drawer, List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@material-ui/icons/Home';
 import Forum from '@material-ui/icons/Forum';
 import AddToQueue from '@material-ui/icons/AddToQueue';
 import ExitToApp from '@material-ui/icons/ExitToApp';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.primary
   }
 }));
-function DashbaordDrawer({name}) {
+function DashbaordDrawer({name,picture}) {
   const classes = useStyles();
   const logout = () => {
     window.location.href = '/';
@@ -31,7 +31,7 @@ function DashbaordDrawer({name}) {
       <List>
         <ListItem>
           <ListItemIcon>
-            <AccountCircleIcon />
+            <Avatar src={picture}/>
           </ListItemIcon>
           <ListItemText primary={name} color='white'  />
         </ListItem>

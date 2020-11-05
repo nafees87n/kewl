@@ -1,6 +1,7 @@
 const express = require('express');
 
 const app = express();
+const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -12,6 +13,12 @@ app.use(bodyParser.json());
 app.use(cors());
 app.use(cookieParser());
 app.use('/login', login);
+
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'client/build/index.html'));
+  });
 
 const port = process.env.PORT || 5000;
 // eslint-disable-next-line no-console
