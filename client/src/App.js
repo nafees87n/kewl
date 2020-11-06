@@ -13,7 +13,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Homepage} />
-        <Route exact path="/login/redirect" component={Loading} />
+        <Route exact path="/login" component={Loading} />
         <ProtectedRoute exact path="/dashboard/rooms/:roomId" component={Chatroom} />
         <ProtectedRoute path="/dashboard" component={Dashboard} />
       </Switch>

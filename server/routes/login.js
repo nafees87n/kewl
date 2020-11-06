@@ -12,7 +12,7 @@ router.get('/redirect', async (req, res) => {
       code: req.query.code,
       client_id: process.env.CLIENTID,
       client_secret: process.env.CLIENT_SECRET,
-      redirect_uri: `https://tranquil-chamber-48344.herokuapp.com/login/redirect`,
+      redirect_uri: `http://localhost:3000/login/redirect`,
       grant_type: 'authorization_code'
     })
     .then((back) => back.data.id_token)
