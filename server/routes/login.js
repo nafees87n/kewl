@@ -23,8 +23,8 @@ router.get('/redirect', async (req, res) => {
   // console.log(token);
   // console.log("HII");
   res.cookie('chatToken', idToken);
-  // res.redirect(200,'https://tranquil-chamber-48344.herokuapp.com/dashboard');
-  res.send({ token: idToken });
+  res.redirect(200,'https://tranquil-chamber-48344.herokuapp.com/dashboard');
+  // res.send({ token: idToken });
 });
 // app.post('/form', (req, res) => {
 //   const { name, about } = req.body;
