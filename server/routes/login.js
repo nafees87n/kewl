@@ -16,7 +16,7 @@ router.get('/redirect', async (req, res) => {
       grant_type: 'authorization_code'
     })
     .then((back) => back.data.id_token)
-    .catch(console.log('ERROR'))
+    .catch((e) => console.log('ERROR', e));
   // document.cookie(`chatToken=${idToken}`);
   // console.log("ACCESS",accessToken)
   // .catch(err=>console.log("err"));
