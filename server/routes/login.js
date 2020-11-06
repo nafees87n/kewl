@@ -15,7 +15,8 @@ router.get('/redirect', async (req, res) => {
       redirect_uri: `http://tranquil-chamber-48344.herokuapp.com/login/redirect`,
       grant_type: 'authorization_code'
     })
-    .then((back) => back.data.id_token);
+    .then((back) => back.data.id_token)
+    .catch(console.log('ERROR'))
   // document.cookie(`chatToken=${idToken}`);
   // console.log("ACCESS",accessToken)
   // .catch(err=>console.log("err"));
