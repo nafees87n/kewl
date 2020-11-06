@@ -8,6 +8,7 @@ export function Loading() {
   useEffect(() => {
     const params = new URL(window.location.href).searchParams;
     const accesscode = params.get('code');
+    console.log('hi',accesscode);
     async function request() {
       await Axios.get('/login/redirect', {
         params: {

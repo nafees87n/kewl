@@ -15,15 +15,16 @@ router.get('/redirect', async (req, res) => {
       redirect_uri: `https://tranquil-chamber-48344.herokuapp.com/login/redirect`,
       grant_type: 'authorization_code'
     })
-    .then((back) => back.data.id_token)
-    .catch((e) => console.log('ERROR', e));
+    .then((back) => back.data.id_token);
+  // .catch((e) => console.log('ERROR', e));
   // document.cookie(`chatToken=${idToken}`);
   // console.log("ACCESS",accessToken)
   // .catch(err=>console.log("err"));
   // console.log(token);
   // console.log("HII");
   res.cookie('chatToken', idToken);
-  res.send({ token: idToken });
+  res.redirect(200,'https://tranquil-chamber-48344.herokuapp.com/login/redirect');
+  // res.send({ token: idToken });
 });
 // app.post('/form', (req, res) => {
 //   const { name, about } = req.body;
