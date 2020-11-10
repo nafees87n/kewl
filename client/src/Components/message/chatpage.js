@@ -70,7 +70,7 @@ const ChatPage = ({ roomname }) => {
               {/* <Paper className={classes.paper}>xs=12</Paper> */}
 
               <ScrollToBottom>
-                <Container style={{ maxHeight: '76.4vh', height: '76.4vh', width: '100%' }}>
+                <Container style={{ maxHeight: '74.4vh', height: '72.4vh', width: '100%' }}>
                   <MessageList />
                 </Container>
               </ScrollToBottom>

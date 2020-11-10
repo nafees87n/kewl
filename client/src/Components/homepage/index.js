@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { HomeNav } from './HomeNav';
 import GoogleLogin from 'react-google-login';
 import Cookies from 'js-cookie';
