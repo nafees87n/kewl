@@ -133,13 +133,12 @@ export default function ChatNav({ roomname, picture, username }) {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton
-          onClick={() => {
-            window.location.href = '/dashboard';
-          }}
-          color="inherit"
-        >
+      <MenuItem
+        onClick={() => {
+          window.location.href = '/dashboard';
+        }}
+      >
+        <IconButton color="inherit">
           <HomeIcon />
         </IconButton>
         <p>Home</p>
@@ -155,7 +154,11 @@ export default function ChatNav({ roomname, picture, username }) {
         </IconButton>
         <p>Profile</p>
       </MenuItem>
-      <MenuItem>
+      <MenuItem
+        onClick={() => {
+          window.location.href = '/';
+        }}
+      >
         <IconButton color="inherit">
           <ExitToAppOutlinedIcon />
         </IconButton>
@@ -179,7 +182,7 @@ export default function ChatNav({ roomname, picture, username }) {
           <Typography className={classes.title} variant="h6" noWrap>
             {roomname}
           </Typography>
-          
+
           {/* <div className={classes.search}>
             <div className={classes.searchIcon}>
               <SearchIcon />
