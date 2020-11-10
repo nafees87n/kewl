@@ -7,40 +7,46 @@ import Forum from '@material-ui/icons/Forum';
 import AddToQueue from '@material-ui/icons/AddToQueue';
 import ExitToApp from '@material-ui/icons/ExitToApp';
 
-
 const useStyles = makeStyles((theme) => ({
   drawerPaper: { width: 'inherit' },
   link: {
     textDecoration: 'none',
     color: theme.palette.text.primary
+  },
+  sectionDesktop: {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex'
+    }
+  },
+  sectionMobile: {
+    display: 'flex',
+    [theme.breakpoints.up('md')]: {
+      display: 'none'
+    }
   }
 }));
-function DashbaordDrawer({name,picture}) {
+
+function DashbaordDrawer({ name, picture }) {
   const classes = useStyles();
   const logout = () => {
     window.location.href = '/';
   };
-  return (
-    <Drawer
-      style={{ width: '220px' }}
-      variant="persistent"
-      anchor="left"
-      open={true}
-      classes={{ paper: classes.drawerPaper }}
-    >
+  const MobileView = (
+    <div className={classes.sectionMobile}>
       <List>
         <ListItem>
           <ListItemIcon>
-            <Avatar src={picture}/>
+            <Avatar src={picture} />
           </ListItemIcon>
-          <ListItemText primary={name} color='white'  />
+          {/* <ListItemText primary={name} color="white" /> */}
         </ListItem>
         <Link to="/dashboard" className={classes.link}>
           <ListItem button>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary={'Home'} />
+            {/* <ListItemText primary={'Home'} /> */}
           </ListItem>
         </Link>
         <Link to="/dashboard/rooms" className={classes.link}>
@@ -48,7 +54,7 @@ function DashbaordDrawer({name,picture}) {
             <ListItemIcon>
               <Forum />
             </ListItemIcon>
-            <ListItemText primary={'Discussion Rooms'} />
+            {/* <ListItemText primary={'Discussion Rooms'} /> */}
           </ListItem>
         </Link>
         <Link to="/dashboard/createroom" className={classes.link}>
@@ -56,7 +62,7 @@ function DashbaordDrawer({name,picture}) {
             <ListItemIcon>
               <AddToQueue />
             </ListItemIcon>
-            <ListItemText primary={'Create New Room'} />
+            {/* <ListItemText primary={'Create New Room'} /> */}
           </ListItem>
         </Link>
         <Link onClick={logout} className={classes.link}>
@@ -64,10 +70,63 @@ function DashbaordDrawer({name,picture}) {
             <ListItemIcon>
               <ExitToApp />
             </ListItemIcon>
-            <ListItemText primary={'Log Out'} />
+            {/* <ListItemText primary={'Log Out'} /> */}
           </ListItem>
         </Link>
       </List>
+    </div>
+  );
+  return (
+    <Drawer
+      style={{ width: '15vw' }}
+      variant="persistent"
+      anchor="left"
+      open={true}
+      classes={{ paper: classes.drawerPaper }}
+    >
+      <div className={classes.sectionDesktop}>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <Avatar src={picture} />
+            </ListItemIcon>
+            <ListItemText primary={name} color="white" />
+          </ListItem>
+          <Link to="/dashboard" className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <HomeIcon />
+              </ListItemIcon>
+              <ListItemText primary={'Home'} />
+            </ListItem>
+          </Link>
+          <Link to="/dashboard/rooms" className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <Forum />
+              </ListItemIcon>
+              <ListItemText primary={'Discussion Rooms'} />
+            </ListItem>
+          </Link>
+          <Link to="/dashboard/createroom" className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <AddToQueue />
+              </ListItemIcon>
+              <ListItemText primary={'Create New Room'} />
+            </ListItem>
+          </Link>
+          <Link onClick={logout} className={classes.link}>
+            <ListItem button>
+              <ListItemIcon>
+                <ExitToApp />
+              </ListItemIcon>
+              <ListItemText primary={'Log Out'} />
+            </ListItem>
+          </Link>
+        </List>
+      </div>
+      {MobileView}
     </Drawer>
   );
 }
