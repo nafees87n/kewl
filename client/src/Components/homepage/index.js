@@ -1,44 +1,44 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HomeNav } from './HomeNav';
-import { GoogleLogin } from 'react-google-login';
+import GoogleLogin from 'react-google-login';
 import Cookies from 'js-cookie';
-const client_key = process.env.REACT_APP_CLIENTID;
-const currUrl=window.location.href;
-const Homepage=()=>  {
-  const [url,setUrl]=useState(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&client_id=663571945289-n5o7daalove9ka7rrdu1k6fd9k5heu1d.apps.googleusercontent.com`)
-  useEffect(() => {
-    if (Cookies.get('chatemail')){
-      let email = Cookies.get('chatemail');
-      setUrl(`https://accounts.google.com/o/oauth2/v2/auth?scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile+openid&access_type=offline&response_type=code&redirect_uri=${currUrl}login/redirect&login_hint=${email}&client_id=663571945289-n5o7daalove9ka7rrdu1k6fd9k5heu1d.apps.googleusercontent.com`)
-    }   
-  },[]);
-  function signin() {
-    window.location.href = url;
+import Axios from 'axios';
+import { useHistory } from 'react-router-dom';
+const Homepage = () => {
+  let history = useHistory();
+  async function responseGoogle(data) {
+    await Axios.post('/login/google', { tokenId: data.tokenId }).then((res) => console.log(res));
+    history.push('/dashboard');
   }
-  
-    return (
-      <>
-        <HomeNav />
-        <div className="container">
-          <div className="row homerow">
-            <div className="col-md-6 col-sm-12 order-md-1 order-2" id="homebg">
-              <div className="card bg-dark">
-                <img className="card-img" src="homepage.jpg" alt="home_image" />
-              </div>
-            </div>
-            <div
-              className="col-md-4 offset-md-2 col-sm-6 offset-sm-4 col-6 offset-4 order-md-2 order-1 align-self-center"
-              id="loginbtn"
-            >
-              <button className="googlebtn" onClick={signin}>
-                <GoogleLogin className="googlebtn" />
-              </button>
+  function failure() {
+    history.push('/');
+  }
+  return (
+    <>
+      <HomeNav />
+      <div className="container">
+        <div className="row homerow">
+          <div className="col-md-6 col-sm-12 order-md-1 order-2" id="homebg">
+            <div className="card bg-dark">
+              <img className="card-img" src="homepage.jpg" alt="home_image" />
             </div>
           </div>
+          <div
+            className="col-md-4 offset-md-2 col-sm-6 offset-sm-4 col-6 offset-4 order-md-2 order-1 align-self-center"
+            id="loginbtn"
+          >
+            <GoogleLogin
+              clientId={process.env.REACT_APP_CLIENTID}
+              className="googlebtn"
+              loginHint={Cookies.get('chatemail')}
+              onSuccess={responseGoogle}
+              onFailure={failure}
+            />
+          </div>
         </div>
-      </>
-    );
-
-}
+      </div>
+    </>
+  );
+};
 
 export default Homepage;

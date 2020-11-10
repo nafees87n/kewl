@@ -2,9 +2,22 @@ const express = require('express');
 
 const router = express.Router();
 require('dotenv').config();
+
+const { OAuth2Client } = require('google-auth-library');
 const axios = require('axios').default;
 // const User = require("../db/db");
-
+const client = new OAuth2Client(process.env.CLIENTID);
+router.post('/google', async (req, res) => {
+  const { tokenId } = req.body;
+  const email = await client
+    .verifyIdToken({ idToken: tokenId, audience: process.env.client_id })
+    .then((response) => {
+      return response.payload.email;
+    });
+  res.cookie('chatemail', email);
+  res.cookie('chatToken', tokenId);
+  res.send('OK');
+});
 router.get('/redirect', async (req, res) => {
   // console.log("REQ CODE", req.query.code); //what is this code
   const idToken = await axios
@@ -23,7 +36,7 @@ router.get('/redirect', async (req, res) => {
   // console.log(token);
   // console.log("HII");
   res.cookie('chatToken', idToken);
-  res.redirect(200,'/dashboard');
+  res.redirect(200, '/dashboard');
   // res.send({ token: idToken });
 });
 // app.post('/form', (req, res) => {
