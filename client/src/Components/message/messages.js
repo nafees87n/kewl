@@ -94,7 +94,7 @@ const Messages = ({ message, timestamp, username, picture }) => {
           <Grid container component={Paper}>
             <Grid item xs={12} className={classes.message}>{message} </Grid>
             <Grid item xs={12} justify='flex-end' >
-              <p className={classes.timestamp}>{new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
+              <p className={classes.timestamp}>{(new Date(timestamp).toLocaleDateString())+'\t'+(new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }))}</p>
             </Grid>
           </Grid>
         </Grid>
