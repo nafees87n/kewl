@@ -1,19 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
+const useStyles = makeStyles((theme) => ({
+  link: {
+    textDecoration: 'none',
+  },
+  sectionDesktop: {
+    width: '100%',
+    textAlign:'center',
+    [theme.breakpoints.up('md')]: {
+      width: '50%',
+      textAlign:'left'
+    }
+  }
+}));
 const Card = ({ title, description }) => {
+  const classes = useStyles();
+  const classname = `bg-light-pink dib br3 pa3 ma2 grow bw2 shadow-5 ${classes.sectionDesktop}`;
   return (
-    <div className="bg-light-blue w-50 dib br3 pa3 ma2 grow bw2 shadow-5 ">
-      <div>
-        <Link
-          onClick={() => (window.location.href = `/dashboard/rooms/${title}`)}
-          className="no-underline link dim white"
-        >
-          <h2>{title} </h2>
-        </Link>
-        <h4>{description} </h4>
+    <Link
+      onClick={() => (window.location.href = `/dashboard/rooms/${title}`)}
+      className="no-underline link black"
+    >
+      <div className={classname}>
+        <div>
+          <h2 className='white'>{title} </h2>
+
+          <h5 className='black'>{description} </h5>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 export default Card;

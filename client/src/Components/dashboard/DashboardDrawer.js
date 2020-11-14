@@ -78,7 +78,7 @@ function DashbaordDrawer({ name, picture }) {
   );
   return (
     <Drawer
-      style={{ width: '15vw' }}
+      style={{ width: '16.5vw' }}
       variant="persistent"
       anchor="left"
       open={true}
