@@ -9,8 +9,9 @@ https://tranquil-chamber-48344.herokuapp.com/
 ---
 
 ## For Developers
-FrontEnd: This project includes a frontend UI bootstrapped with [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) and [material UI](https://material-ui.com/getting-started/installation/). The frontend client is located in `./client` folder.
-<br/>
+Frontend: This project includes a frontend UI bootstrapped with [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html) and [material UI](https://material-ui.com/getting-started/installation/). The frontend client is located in `./client` folder.
+
+
 Backend:BE: The backend runs on express/nodejs. In production mode, express server exposes the API endpoints and serve the static frontend from `./client/build`.
 
 ---
