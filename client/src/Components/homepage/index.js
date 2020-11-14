@@ -8,7 +8,7 @@ const Homepage = () => {
   let history = useHistory();
   async function responseGoogle(data) {
     await Axios.post('/login/google', { tokenId: data.tokenId }).then((res) => console.log(res));
-    history.push('/dashboard');
+    history.push('/login/redirect');
   }
   function failure() {
     history.push('/');

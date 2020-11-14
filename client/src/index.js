@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Homepage from './Components/homepage';
 import ProtectedRoute from './Components/ProtectedRoute';
