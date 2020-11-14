@@ -32,7 +32,7 @@ function Dashboard() {
                 </Typography>
                 <Typography variant="body1" gutterBottom>
                   Kewl is a multi-topic discussion forum wherein you can indulge in real-time
-                  discussions on certin topics with like minded people to generate meaningful
+                  discussions on certain topics with like minded people to generate meaningful
                   thoughts on the topic.
                 </Typography>
               </Container>

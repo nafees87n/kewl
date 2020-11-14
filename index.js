@@ -17,12 +17,17 @@ app.use('/login', login);
 
 app.use(express.static('client/build'));
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
-});
-app.get('/login/redirect', (req, res) => {
-  res.sendFile(path.join(__dirname, './client/build', 'index.html'));
-});
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './client/build', 'index.html'));
+  });
+} else {
+  app.get('/*', (req, res) => {
+    res.status(500).send('Cant serve production build in dev mode, please open react dev server');
+  });
+}
+
 const port = process.env.PORT || 5000;
 // eslint-disable-next-line no-console
 app.listen(port, console.log(`Server started at port ${port}`));

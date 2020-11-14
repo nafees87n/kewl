@@ -76,7 +76,7 @@ const Messages = ({ message, timestamp, username, picture }) => {
             </Grid>
             <Grid item xs={12} justify="flex-end">
               <p className={classes.timestamp}>
-                {new Date(timestamp).toLocaleDateString() +
+                {new Date(timestamp).toDateString() +
                   '\t' +
                   new Date(timestamp).toLocaleTimeString([], {
                     hour: '2-digit',
